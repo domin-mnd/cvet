@@ -1,0 +1,27 @@
+{
+  "name": "cvet",
+  "version": "1.0.0",
+  "description": "An effecient color tool for your projects",
+  "main": "dist/cjs/index.js",
+  "module": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "scripts": {
+    "compile": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Domin-MND/cvet.git"
+  },
+  "keywords": [
+    "color",
+    "colors",
+    "cvet",
+    "web"
+  ],
+  "author": "Domin-MND",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Domin-MND/cvet/issues"
+  },
+  "homepage": "https://github.com/Domin-MND/cvet#readme"
+}
