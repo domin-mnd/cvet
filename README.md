@@ -20,8 +20,9 @@ $ yarn add cvet
 
 To work with palette or filters you have to declare classes (Filter class extends palette):
 
-```ts
-import { Palette, Filter } from "cvet";
+```js
+import { Palette, Filter } from "cvet"; // esm
+const { Palette, Filter } = require("cvet"); // or cjs
 
 const color = new Palette("#FF0000", "HEX");
 const filterColor = new Filter(
@@ -53,7 +54,7 @@ There are 5 color types you can use as second parameter:
 As Filter extends Palette, there are more than enough same getters working
 for both classes:
 
-```ts
+```js
 console.log(color.color); // Returns RGB color (MAP), console logging `color` would just return instance
 console.log(color.red); // Returns red value in the color
 console.log(color.green); // Returns green value in the color
@@ -68,7 +69,7 @@ Filter class on the other hand is only extended with filter functions so these a
 
 Other than that there's obviously a way to set a new color for the instance:
 
-```ts
+```js
 color.color({
   r: 0,
   g: 255,
@@ -84,7 +85,7 @@ There are 7 filters for your colors you can use: contrast, grayscale, invert, li
 
 Each of those have different parameters - as the result these methods return the instance so that to invert the color you need to do following actions:
 
-```ts
+```js
 const color = new Filter("#FF0000", "HEX");
 
 console.log(color.rgb); // { r: 255, g: 0, b: 0 }
@@ -111,8 +112,9 @@ There's a bunch of tools (or utilities) you can use. One is `pickColorCombinatio
 - Amount of colors in a combination (default: 2)
 - HEX color of the initial color (default: random)
 
-```ts
-import { pickColorCombination } from "cvet";
+```js
+import { pickColorCombination } from "cvet"; // esm
+const { pickColorCombination } = require("cvet"); // or cjs
 
 console.log(pickColorCombination(3, "#ffd301"));
 // Returns ["#ffd301", "#01ffd3", "#d301ff"]
