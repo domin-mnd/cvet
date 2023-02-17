@@ -1,6 +1,6 @@
 {
   "name": "cvet",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "An effecient color tool for your projects",
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.mjs",
