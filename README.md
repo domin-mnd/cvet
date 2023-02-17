@@ -70,11 +70,11 @@ Filter class on the other hand is only extended with filter functions so these a
 Other than that there's obviously a way to set a new color for the instance:
 
 ```js
-color.color({
+color.color = {
   r: 0,
   g: 255,
   b: 255
-})
+};
 ```
 
 However it only accepts RGB / MAP color type so you'd want to use utilities (provided as functions by the package) to convert your CMYK, HEX, HSL values to RGB.

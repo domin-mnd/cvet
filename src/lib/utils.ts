@@ -1,12 +1,15 @@
 import type { HEX, RGB, HSL, CMYK } from "./types";
 
 /** Add 00 pads for RGB parts of HEX color */
-export const padHEX = (value: string | number) =>
-  value < 10 ? "0" + value : value;
+export function padHEX(num: number | string, size: number = 2): string {
+    let s = num.toString();
+    while (s.length < size) s = "0" + s;
+    return s;
+ }
 
 /** Generate a random HEX color */
 export const randomColor = () => {
-  const random = padHEX(Math.floor(Math.random() * 16777215).toString(16));
+  const random = padHEX(((1<<24)*Math.random() | 0).toString(16), 6);
   return `#${random}` as HEX;
 }
 
