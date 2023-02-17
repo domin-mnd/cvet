@@ -4,7 +4,8 @@ public
 tests
 
 # Configs
-jest.config.jest
+jest.config.js
 tsconfig.cjs.json
 tsconfig.esm.json
 tsconfig.json
+tsconfig.types.json
