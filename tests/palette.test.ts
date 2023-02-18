@@ -19,7 +19,6 @@ test("Color conversion", () => {
   expect(palette.cmyk).toStrictEqual({ c: 0, m: 100, y: 100, k: 0 });
 });
 
-  
 test("Getters", () => {
   const palette = new Palette("#FF0000", "HEX");
 

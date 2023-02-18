@@ -6,9 +6,7 @@ import { Filter } from "../classes/filter";
  * @param {HEX} color A color to find complementary opposite to.
  * @returns {[HEX, HEX]} An array of HEX colors
  */
-export function complementary(
-  color: HEX
-): [HEX, HEX] {
+export function complementary(color: HEX): [HEX, HEX] {
   const colorMap = new Filter(color, "HEX");
 
   return [color.toLowerCase() as HEX, colorMap.rotateHue(180).hex];

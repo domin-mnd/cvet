@@ -8,13 +8,13 @@ import type { RGB } from "../types";
  */
 export function contrast(rgb: RGB, amount: number): RGB {
   const c = {
-    r: (rgb.r - 128) * amount / 100 + 128, 
-    g: (rgb.g - 128) * amount / 100 + 128,
-    b: (rgb.b - 128) * amount / 100 + 128
-  }
+    r: ((rgb.r - 128) * amount) / 100 + 128,
+    g: ((rgb.g - 128) * amount) / 100 + 128,
+    b: ((rgb.b - 128) * amount) / 100 + 128,
+  };
   return {
     r: c.r < 0 ? 0 : c.r > 255 ? 255 : Math.round(c.r),
     g: c.g < 0 ? 0 : c.g > 255 ? 255 : Math.round(c.g),
-    b: c.b < 0 ? 0 : c.b > 255 ? 255 : Math.round(c.b)
-  }
+    b: c.b < 0 ? 0 : c.b > 255 ? 255 : Math.round(c.b),
+  };
 }

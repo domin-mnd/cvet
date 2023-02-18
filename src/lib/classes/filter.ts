@@ -1,5 +1,13 @@
 import { Amount, Color, ColorType, Degrees } from "../types";
-import { contrast, grayscale, lighten, invert, rotateHue, saturate, darken } from "../filters/index";
+import {
+  contrast,
+  grayscale,
+  lighten,
+  invert,
+  rotateHue,
+  saturate,
+  darken,
+} from "../filters/index";
 import { Palette } from "./palette";
 
 /**
@@ -8,7 +16,6 @@ import { Palette } from "./palette";
  * @extends Palette
  */
 export class Filter extends Palette {
-
   /**
    * Creates an instance of Filter.
    * @param {Color} color A color that is going to be mapped
@@ -21,7 +28,7 @@ export class Filter extends Palette {
   /**
    * Adjust the contrast of a color by a given amount.
    * @param {Amount} amount The amount to adjust the contrast by. 0-100%
-  */
+   */
   contrast(amount: number): Filter {
     this.color = contrast(this.rgb, amount);
     return this;
@@ -71,7 +78,7 @@ export class Filter extends Palette {
     return this;
   }
 
-  /** 
+  /**
    * Saturate a color by a given amount.
    * @param {Amount} amount The amount to saturate the color by. 0-100%
    */

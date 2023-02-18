@@ -39,7 +39,6 @@ test("Lighten/Darken filters", () => {
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.lighten(100).hex).toBe("#ffffff");
 
-
   // Darken with instance reset
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.darken(0).hex).toBe("#00ff00");
@@ -59,8 +58,6 @@ test("Rotate hue filter", () => {
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.rotateHue(240).hex).toBe("#ff0000");
 });
-
-  
 
 test("Saturate filter", () => {
   const filter = new Filter("#00FF00", "HEX");

@@ -1,14 +1,14 @@
 import type { Color, ColorMap, ColorType, HEX, RGB, HSL, CMYK } from "../types";
 import { cmykToRgb, hexToRgb, hslToRgb, padHEX } from "../utils";
 
-/** 
+/**
  * A class that represents a color palette
  * @class Palette
  */
 export class Palette {
   private _color: ColorMap;
 
-  /** 
+  /**
    * Create a palette and convert types to MAP (RGB)
    * @param {Color} color A color used to create a palette
    * @param {ColorType} type A color type used to convert to MAP
@@ -22,17 +22,20 @@ export class Palette {
    * @param {Color} color A color used to convert to MAP
    * @param {ColorType} type Its type
    */
-  private mapColor(
-    color: Color = this._color,
-    type: ColorType
-  ): ColorMap {
+  private mapColor(color: Color = this._color, type: ColorType): ColorMap {
     switch (type) {
-      case "HEX": return hexToRgb(color as HEX);
-      case "RGB": return color as ColorMap;
-      case "HSL": return hslToRgb(color as HSL);
-      case "CMYK": return cmykToRgb(color as CMYK);
-      case "MAP": return color as ColorMap;
-      default: throw new Error("Invalid color type");
+      case "HEX":
+        return hexToRgb(color as HEX);
+      case "RGB":
+        return color as ColorMap;
+      case "HSL":
+        return hslToRgb(color as HSL);
+      case "CMYK":
+        return cmykToRgb(color as CMYK);
+      case "MAP":
+        return color as ColorMap;
+      default:
+        throw new Error("Invalid color type");
     }
   }
 
@@ -85,7 +88,7 @@ export class Palette {
     let h = 0;
     let s = 0;
     let l = (max + min) / 2;
-  
+
     if (max === min) {
       h = s = 0;
     } else {
@@ -109,7 +112,7 @@ export class Palette {
     h *= 360;
     s *= 100;
     l *= 100;
-  
+
     return { h, s, l };
   }
 
@@ -119,12 +122,10 @@ export class Palette {
     const g = this.color.g / 255;
     const b = this.color.b / 255;
 
-    
-    
     const k = (1 - Math.max(r, g, b)) * 100;
-    const c = (1 - r - k) / (1 - k) * 100;
-    const m = (1 - g - k) / (1 - k) * 100;
-    const y = (1 - b - k) / (1 - k) * 100;
+    const c = ((1 - r - k) / (1 - k)) * 100;
+    const m = ((1 - g - k) / (1 - k)) * 100;
+    const y = ((1 - b - k) / (1 - k)) * 100;
 
     return { c, m, y, k };
   }

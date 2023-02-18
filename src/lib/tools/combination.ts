@@ -15,10 +15,11 @@ export function combination(
   if (combination <= 0) throw new Error("Combination must be greater than 0");
   if (combination > 360) throw new Error("Combination must be less than 360");
 
-  const degrees = 360 / combination as Degrees;
+  const degrees = (360 / combination) as Degrees;
   const colorMap = new Filter(initialColor, "HEX");
-  const colors = Array.from({ length: combination - 1 }, () =>
-    colorMap.rotateHue(degrees).hex
+  const colors = Array.from(
+    { length: combination - 1 },
+    () => colorMap.rotateHue(degrees).hex
   );
 
   return [initialColor.toLowerCase() as HEX, ...colors];

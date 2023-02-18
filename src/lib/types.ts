@@ -8,7 +8,7 @@ export type RGB = {
   /** Green color value */
   g: number;
   /** Blue color value */
-  b: number
+  b: number;
 };
 
 /** An object with h, s, l keys representing HSL color */
@@ -18,7 +18,7 @@ export type HSL = {
   /** Saturation color value */
   s: number;
   /** Lightness color value */
-  l: number
+  l: number;
 };
 
 /** An object with c, m, y, k keys representing CMYK color */
@@ -30,7 +30,7 @@ export type CMYK = {
   /** Yellow color value */
   y: number;
   /** Black color value */
-  k: number
+  k: number;
 };
 
 /** Names of a color type */
@@ -41,9 +41,12 @@ export type Color = HEX | RGB | HSL | CMYK | ColorMap;
 export type ColorMap = RGB;
 
 /** A type for enumerating an integer */
-export type Enumerate<N extends number, Acc extends number[] = []> = Acc['length'] extends N
+export type Enumerate<
+  N extends number,
+  Acc extends number[] = []
+> = Acc["length"] extends N
   ? Acc[number]
-  : Enumerate<N, [...Acc, Acc['length']]>;
+  : Enumerate<N, [...Acc, Acc["length"]]>;
 
 /** A type for finding a range of integers */
 export type IntRange<F extends number, T extends number> = Exclude<

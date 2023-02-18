@@ -9,9 +9,9 @@ export function padHEX(num: number | string, size: number = 2): string {
 
 /** Generate a random HEX color */
 export const randomColor = () => {
-  const random = padHEX(((1<<24)*Math.random() | 0).toString(16), 6);
+  const random = padHEX((((1 << 24) * Math.random()) | 0).toString(16), 6);
   return `#${random}` as HEX;
-}
+};
 
 /**
  * Convert HUE to RGB
@@ -29,7 +29,7 @@ export function hueToRgb(p: number, q: number, t: number): number {
   return p;
 }
 
-/** 
+/**
  * Convert HEX color to RGB
  * @param {HEX} hex An HEX color used to convert to RGB
  * @returns {RGB} An RGB color
@@ -41,7 +41,7 @@ export function hexToRgb(hex: HEX): RGB {
   return { r, g, b };
 }
 
-/** 
+/**
  * Convert HSL color to RGB
  * @param {HSL} hsl An HSL color used to convert to RGB
  * @returns {RGB} An RGB color
@@ -66,11 +66,11 @@ export function hslToRgb(hsl: HSL): RGB {
   return {
     r: Math.round(r * 255),
     g: Math.round(g * 255),
-    b: Math.round(b * 255)
+    b: Math.round(b * 255),
   };
 }
 
-/** 
+/**
  * Convert an CMYK color to RGB
  * @param {CMYK} cmyk An CMYK color used to convert to RGB
  * @returns {RGB} An RGB color

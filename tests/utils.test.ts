@@ -34,11 +34,19 @@ test("hexToRgb", () => {
 });
 
 test("hslToRgb", () => {
-  expect(hslToRgb({ h: 0, s: 100, l: 50 })).toStrictEqual({ r: 255, g: 0, b: 0 });
+  expect(hslToRgb({ h: 0, s: 100, l: 50 })).toStrictEqual({
+    r: 255,
+    g: 0,
+    b: 0,
+  });
 });
 
 test("cmykToRgb", () => {
-  expect(cmykToRgb({ c: 0, m: 100, y: 100, k: 0 })).toStrictEqual({ r: 255, g: 0, b: 0 });
+  expect(cmykToRgb({ c: 0, m: 100, y: 100, k: 0 })).toStrictEqual({
+    r: 255,
+    g: 0,
+    b: 0,
+  });
 });
 
 test("luminosity", () => {
