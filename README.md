@@ -120,6 +120,24 @@ console.log(combination(3, "#ffd301"));
 // Returns ["#ffd301", "#01ffd3", "#d301ff"]
 ```
 
+Tools like `complementary`, `triade`, `square`, `rainbow` work almost identically except these have combination amount preset:
+- `complementary` returns an opposite (not inverse) color in an array of the initial color & itself
+- `triade` returns a triade (3) array of colors with a provided initial color
+- `square` acts the same and returns a square (4) array of colors with a provided initial color
+- `rainbow` returns a full rainbow (7) array of colors with a provided initial color
+
+> Note: Unlike `combination` tools above require a single parameter - HEX color (no default set).
+
+Other than these there's an `analogous` tool to return analogous colors (30 degrees rotated hue clockwise & counterclockwise):
+
+```js
+import { analogous } from "cvet"; // esm
+const { analogous } = require("cvet"); // or cjs
+
+console.log(analogous("#62c62c"));
+// Returns ["#62c62c", "#2cc643", "#afc62c"]
+```
+
 ## Utilities
 
 There are also some utilities that would ease your work with the package:
