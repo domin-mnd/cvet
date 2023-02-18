@@ -2,5 +2,8 @@ export * from "./analogous";
 export * from "./combination";
 export * from "./complementary";
 export * from "./rainbow";
+export * from "./shades";
 export * from "./square";
+export * from "./tints";
+export * from "./tones";
 export * from "./triade";
