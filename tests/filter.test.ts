@@ -34,7 +34,7 @@ test("Lighten/Darken filters", () => {
   const filter = new Filter("#00FF00", "HEX");
 
   // Lighten with instance reset
-  expect(filter.lighten(0).hex).toBe("#ff0100");
+  expect(filter.lighten(0).hex).toBe("#00ff00");
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.lighten(100).hex).toBe("#ffffff");
@@ -42,7 +42,7 @@ test("Lighten/Darken filters", () => {
 
   // Darken with instance reset
   filter.color = { r: 0, g: 255, b: 0 };
-  expect(filter.darken(0).hex).toBe("#ff0100");
+  expect(filter.darken(0).hex).toBe("#00ff00");
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.darken(100).hex).toBe("#000000");
@@ -51,13 +51,13 @@ test("Lighten/Darken filters", () => {
 test("Rotate hue filter", () => {
   const filter = new Filter("#00FF00", "HEX");
 
-  expect(filter.rotateHue(0).hex).toBe("#ff0100");
+  expect(filter.rotateHue(0).hex).toBe("#00ff00");
 
   filter.color = { r: 0, g: 255, b: 0 };
-  expect(filter.rotateHue(120).hex).toBe("#00ff01");
+  expect(filter.rotateHue(120).hex).toBe("#0000ff");
 
   filter.color = { r: 0, g: 255, b: 0 };
-  expect(filter.rotateHue(240).hex).toBe("#0100ff");
+  expect(filter.rotateHue(240).hex).toBe("#ff0000");
 });
 
   
@@ -65,8 +65,8 @@ test("Rotate hue filter", () => {
 test("Saturate filter", () => {
   const filter = new Filter("#00FF00", "HEX");
 
-  expect(filter.saturate(0).hex).toBe("#808080");
+  expect(filter.saturate(0).hex).toBe("#7f7f7f");
 
   filter.color = { r: 0, g: 255, b: 0 };
-  expect(filter.saturate(100).hex).toBe("#ff0100");
+  expect(filter.saturate(100).hex).toBe("#00ff00");
 });

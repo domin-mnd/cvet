@@ -84,7 +84,7 @@ export class Palette {
     const min = Math.min(r, g, b);
     let h = 0;
     let s = 0;
-    const l = (max + min) / 2;
+    let l = (max + min) / 2;
   
     if (max === min) {
       h = s = 0;
@@ -104,6 +104,11 @@ export class Palette {
       }
       h /= 6;
     }
+
+    // Convert to percentage
+    h *= 360;
+    s *= 100;
+    l *= 100;
   
     return { h, s, l };
   }
@@ -113,10 +118,13 @@ export class Palette {
     const r = this.color.r / 255;
     const g = this.color.g / 255;
     const b = this.color.b / 255;
-    const k = 1 - Math.max(r, g, b);
-    const c = (1 - r - k) / (1 - k);
-    const m = (1 - g - k) / (1 - k);
-    const y = (1 - b - k) / (1 - k);
+
+    
+    
+    const k = (1 - Math.max(r, g, b)) * 100;
+    const c = (1 - r - k) / (1 - k) * 100;
+    const m = (1 - g - k) / (1 - k) * 100;
+    const y = (1 - b - k) / (1 - k) * 100;
 
     return { c, m, y, k };
   }

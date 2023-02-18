@@ -43,8 +43,8 @@ There are 5 color types you can use as second parameter:
 
 - HEX - Written as string (`"#FF0000"`)
 - RGB - Written as an object with r, g, b keys (`{ r: 255, g: 0, b: 0 }`)
-- HSL - Written as an object as well with corresponding keys (`{ h: 0, s: 1, l: 0.5 }`)
-- CMYK - Written the same as RGB & HSL (`{ c: 0, m: 1, y: 1, k: 0 }`)
+- HSL - Written as an object as well with corresponding keys (`{ h: 0, s: 100, l: 50 }`)
+- CMYK - Written the same as RGB & HSL (`{ c: 0, m: 100, y: 100, k: 0 }`)
 - MAP - Is basically RGB
 
 > Note: The entire package is typescript friendly.
@@ -107,16 +107,16 @@ Here's a parameter list for each of the filter:
 
 ## Tools
 
-There's a bunch of tools (or utilities) you can use. One is `pickColorCombination` function that accepts 2 parameters:
+There's a bunch of tools (or utilities) you can use. One is `combination` function that accepts 2 parameters:
 
 - Amount of colors in a combination (default: 2)
 - HEX color of the initial color (default: random)
 
 ```js
-import { pickColorCombination } from "cvet"; // esm
-const { pickColorCombination } = require("cvet"); // or cjs
+import { combination } from "cvet"; // esm
+const { combination } = require("cvet"); // or cjs
 
-console.log(pickColorCombination(3, "#ffd301"));
+console.log(combination(3, "#ffd301"));
 // Returns ["#ffd301", "#01ffd3", "#d301ff"]
 ```
 

@@ -2,10 +2,10 @@ import type { HEX, RGB, HSL, CMYK } from "./types";
 
 /** Add 00 pads for RGB parts of HEX color */
 export function padHEX(num: number | string, size: number = 2): string {
-    let s = num.toString();
-    while (s.length < size) s = "0" + s;
-    return s;
- }
+  let s = num.toString();
+  while (s.length < size) s = "0" + s;
+  return s;
+}
 
 /** Generate a random HEX color */
 export const randomColor = () => {
@@ -50,8 +50,8 @@ export function hslToRgb(hsl: HSL): RGB {
   let r, g, b;
 
   const h = hsl.h / 360;
-  const s = hsl.s;
-  const l = hsl.l;
+  const s = hsl.s / 100;
+  const l = hsl.l / 100;
 
   if (s === 0) {
     r = g = b = l;
@@ -64,9 +64,9 @@ export function hslToRgb(hsl: HSL): RGB {
   }
 
   return {
-    r: Math.round(r * 255),
-    g: Math.round(g * 255),
-    b: Math.round(b * 255)
+    r: Math.floor(r * 255),
+    g: Math.floor(g * 255),
+    b: Math.floor(b * 255)
   };
 }
 
@@ -81,9 +81,11 @@ export function cmykToRgb(cmyk: CMYK): RGB {
   const y = cmyk.y;
   const k = cmyk.k;
 
-  const r = 255 * (1 - c) * (1 - k);
-  const g = 255 * (1 - m) * (1 - k);
-  const b = 255 * (1 - y) * (1 - k);
+  const kr = (100 - k) / 100;
+
+  const r = 255 * ((100 - c) / 100) * kr;
+  const g = 255 * ((100 - m) / 100) * kr;
+  const b = 255 * ((100 - y) / 100) * kr;
 
   return { r, g, b };
 }

@@ -8,8 +8,8 @@ import { hslToRgb } from "../utils";
  * @returns {RGB} The lightened color in RGB that can be then used as map.
  */
 export function lighten(hsl: HSL, amount: Amount): RGB {
-  const light = hsl.l + (hsl.l * (amount / 100))
-  return hslToRgb({ ...hsl, l: light > 1 ? 1 : light });
+  const light = hsl.l + (hsl.l * (amount / 100));
+  return hslToRgb({ ...hsl, l: light > 100 ? 100 : light });
 }
 
 /**
@@ -19,6 +19,6 @@ export function lighten(hsl: HSL, amount: Amount): RGB {
  * @returns {RGB} The darkened color in RGB that can be then used as map.
  */
 export function darken(hsl: HSL, amount: Amount): RGB {
-  const light = hsl.l + (hsl.l * (-amount / 100))
+  const light = hsl.l + (hsl.l * (-amount / 100));
   return hslToRgb({ ...hsl, l: light < 0 ? 0 : light });
 }

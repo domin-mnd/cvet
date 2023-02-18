@@ -1,1 +1,2 @@
-export * from "./colorCombinations";
+export * from "./combination";
+export * from "./analogous";

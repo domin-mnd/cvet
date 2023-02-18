@@ -8,7 +8,7 @@ import { Filter } from "../classes/filter";
  * @param {HEX | undefined} initialColor The initial color used as the first color in the combination
  * @returns {HEX[]} An array of HEX colors
  */
-export function pickColorCombination(
+export function combination(
   combination: number = 2,
   initialColor: HEX = randomColor()
 ): HEX[] {
