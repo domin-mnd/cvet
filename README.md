@@ -138,6 +138,20 @@ console.log(analogous("#62c62c"));
 // Returns ["#62c62c", "#2cc643", "#afc62c"]
 ```
 
+Also you can use `shades`, `tints`, `tones` to generate octad arrays for colors:
+
+```js
+import { shades, tints, tones } from "cvet"; // esm
+const { shades, tints, tones } = require("cvet"); // or cjs
+
+console.log(shades("#62c62c"));
+// Returns ["#4e9e24", "#448a20", "#3a761b", "#306216", "#264e12", "#1c3a0d", "#122609", "#091204"]
+console.log(tints("#62c62c"));
+// Returns ["#7fd850", "#8fdd66", "#9fe27c", "#afe792", "#bfeca8", "#cff1be", "#dff6d4", "#effbea"]
+console.log(tones("#62c62c"));
+// Returns ["#68b83d", "#6bb145", "#6eaa4e", "#71a356", "#749c5e", "#779567", "#7a8e6f", "#7d8778"]
+```
+
 ## Utilities
 
 There are also some utilities that would ease your work with the package:
