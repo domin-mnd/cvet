@@ -65,7 +65,7 @@ test("Rotate hue filter", () => {
 test("Saturate filter", () => {
   const filter = new Filter("#00FF00", "HEX");
 
-  expect(filter.saturate(0).hex).toBe("#7f7f7f");
+  expect(filter.saturate(0).hex).toBe("#808080");
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.saturate(100).hex).toBe("#00ff00");

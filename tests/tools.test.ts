@@ -1,6 +1,7 @@
 import {
+  analogous,
   combination,
-  analogous
+  complementary
 } from "../src/index";
 
 test("Combination", () => {
@@ -8,5 +9,9 @@ test("Combination", () => {
 });
 
 test("Analogous", () => {
-  expect(analogous("#62C62C")).toStrictEqual(["#62c62c", "#2bc543", "#acc42a"]);
+  expect(analogous("#62C62C")).toStrictEqual(["#62c62c", "#2cc643", "#afc62c"]);
+});
+
+test("Complementary", () => {
+  expect(complementary("#62C62C")).toStrictEqual(["#62c62c", "#902cc6"]);
 });
