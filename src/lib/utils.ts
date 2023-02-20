@@ -1,4 +1,5 @@
-import type { HEX, RGB, HSL, CMYK } from "./types";
+import type { HEX, RGB, HSL, CMYK } from "@cvet/types";
+import { Hexadecimal } from "../../types";
 
 /** Add 00 pads for RGB parts of HEX color */
 export function padHEX(num: number | string, size: number = 2): string {
@@ -35,9 +36,9 @@ export function hueToRgb(p: number, q: number, t: number): number {
  * @returns {RGB} An RGB color
  */
 export function hexToRgb(hex: HEX): RGB {
-  const r = parseInt(hex.slice(1, 3), 16);
-  const g = parseInt(hex.slice(3, 5), 16);
-  const b = parseInt(hex.slice(5, 7), 16);
+  const r = parseInt(hex.slice(1, 3), 16) as Hexadecimal;
+  const g = parseInt(hex.slice(3, 5), 16) as Hexadecimal;
+  const b = parseInt(hex.slice(5, 7), 16) as Hexadecimal;
   return { r, g, b };
 }
 
@@ -64,9 +65,9 @@ export function hslToRgb(hsl: HSL): RGB {
   }
 
   return {
-    r: Math.round(r * 255),
-    g: Math.round(g * 255),
-    b: Math.round(b * 255),
+    r: Math.round(r * 255) as Hexadecimal,
+    g: Math.round(g * 255) as Hexadecimal,
+    b: Math.round(b * 255) as Hexadecimal,
   };
 }
 
@@ -83,9 +84,9 @@ export function cmykToRgb(cmyk: CMYK): RGB {
 
   const kr = (100 - k) / 100;
 
-  const r = 255 * ((100 - c) / 100) * kr;
-  const g = 255 * ((100 - m) / 100) * kr;
-  const b = 255 * ((100 - y) / 100) * kr;
+  const r = 255 * ((100 - c) / 100) * kr as Hexadecimal;
+  const g = 255 * ((100 - m) / 100) * kr as Hexadecimal;
+  const b = 255 * ((100 - y) / 100) * kr as Hexadecimal;
 
   return { r, g, b };
 }

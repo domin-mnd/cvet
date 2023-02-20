@@ -1,4 +1,4 @@
-import type { Degrees, HSL, RGB } from "../types";
+import type { Degrees, HSL, RGB } from "@cvet/types";
 import { hslToRgb } from "../utils";
 
 /**

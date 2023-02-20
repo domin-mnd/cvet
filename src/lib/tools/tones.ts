@@ -1,4 +1,4 @@
-import type { Amount, HEX } from "../types";
+import type { Amount, HEX } from "@cvet/types";
 import { Filter } from "../classes/filter";
 
 /**

@@ -1,4 +1,4 @@
-import type { Degrees, HEX } from "../types";
+import type { Degrees, HEX } from "@cvet/types";
 import { randomColor } from "../utils";
 import { Filter } from "../classes/filter";
 

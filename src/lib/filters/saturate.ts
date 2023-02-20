@@ -1,4 +1,4 @@
-import type { Amount, HSL, RGB } from "../types";
+import type { Amount, HSL, RGB } from "@cvet/types";
 import { hslToRgb } from "../utils";
 
 /**

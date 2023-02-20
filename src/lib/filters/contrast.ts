@@ -1,4 +1,4 @@
-import type { RGB } from "../types";
+import type { RGB, Hexadecimal } from "@cvet/types";
 
 /**
  * Adjust the contrast of a color by a given amount.
@@ -13,8 +13,8 @@ export function contrast(rgb: RGB, amount: number): RGB {
     b: ((rgb.b - 128) * amount) / 100 + 128,
   };
   return {
-    r: c.r < 0 ? 0 : c.r > 255 ? 255 : Math.round(c.r),
-    g: c.g < 0 ? 0 : c.g > 255 ? 255 : Math.round(c.g),
-    b: c.b < 0 ? 0 : c.b > 255 ? 255 : Math.round(c.b),
+    r: c.r < 0 ? 0 : c.r > 255 ? 255 : Math.round(c.r) as Hexadecimal,
+    g: c.g < 0 ? 0 : c.g > 255 ? 255 : Math.round(c.g) as Hexadecimal,
+    b: c.b < 0 ? 0 : c.b > 255 ? 255 : Math.round(c.b) as Hexadecimal,
   };
 }

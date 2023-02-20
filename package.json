@@ -3,7 +3,7 @@
   "version": "2.2.2",
   "description": "An effecient color tool for your projects",
   "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.mjs",
+  "module": "dist/esm/index.js",
   "types": "dist/types/index.d.ts",
   "scripts": {
     "compile": "tsc -b ./tsconfig.cjs.json ./tsconfig.esm.json ./tsconfig.types.json",
@@ -32,5 +32,8 @@
     "jest": "^29.4.3",
     "prettier": "^2.8.4",
     "ts-jest": "^29.0.5"
+  },
+  "dependencies": {
+    "@cvet/types": "^2.2.5"
   }
 }

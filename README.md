@@ -55,7 +55,7 @@ As Filter extends Palette, there are more than enough same getters working
 for both classes:
 
 ```js
-console.log(color.color); // Returns RGB color (MAP), console logging `color` would just return instance
+console.log(color.color); // Returns RGB color (MAP), console logging the class would just return instance
 console.log(color.red); // Returns red value in the color
 console.log(color.green); // Returns green value in the color
 console.log(color.blue); // Returns blue value in the color

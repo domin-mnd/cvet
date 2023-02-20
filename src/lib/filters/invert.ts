@@ -1,5 +1,4 @@
-import type { HSL, RGB } from "../types";
-import { hslToRgb } from "../utils";
+import type { Hexadecimal, RGB } from "@cvet/types";
 
 /**
  * Invert a color.
@@ -8,8 +7,8 @@ import { hslToRgb } from "../utils";
  */
 export function invert(rgb: RGB): RGB {
   return {
-    r: 255 - rgb.r,
-    g: 255 - rgb.g,
-    b: 255 - rgb.b,
+    r: 255 - rgb.r as Hexadecimal,
+    g: 255 - rgb.g as Hexadecimal,
+    b: 255 - rgb.b as Hexadecimal,
   };
 }

@@ -1,4 +1,4 @@
-import type { Amount, RGB } from "../types";
+import type { Amount, Hexadecimal, RGB } from "@cvet/types";
 
 /**
  * Grayscale a color by a given amount.
@@ -10,8 +10,8 @@ export function grayscale(rgb: RGB, amount: Amount): RGB {
   const { r, g, b } = rgb;
   const gray = r * 0.3 + g * 0.59 + b * 0.11;
   return {
-    r: gray + ((r - gray) * amount) / 100,
-    g: gray + ((g - gray) * amount) / 100,
-    b: gray + ((b - gray) * amount) / 100,
+    r: gray + ((r - gray) * amount) / 100 as Hexadecimal,
+    g: gray + ((g - gray) * amount) / 100 as Hexadecimal,
+    b: gray + ((b - gray) * amount) / 100 as Hexadecimal,
   };
 }
