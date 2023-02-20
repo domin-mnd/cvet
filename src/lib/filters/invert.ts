@@ -7,8 +7,8 @@ import type { Hexadecimal, RGB } from "@cvet/types";
  */
 export function invert(rgb: RGB): RGB {
   return {
-    r: 255 - rgb.r as Hexadecimal,
-    g: 255 - rgb.g as Hexadecimal,
-    b: 255 - rgb.b as Hexadecimal,
+    r: (255 - rgb.r) as Hexadecimal,
+    g: (255 - rgb.g) as Hexadecimal,
+    b: (255 - rgb.b) as Hexadecimal,
   };
 }

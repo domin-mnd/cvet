@@ -1,4 +1,12 @@
-import type { Color, ColorMap, ColorType, HEX, RGB, HSL, CMYK } from "@cvet/types";
+import type {
+  Color,
+  ColorMap,
+  ColorType,
+  HEX,
+  RGB,
+  HSL,
+  CMYK,
+} from "@cvet/types";
 import { cmykToRgb, hexToRgb, hslToRgb, padHEX } from "../utils";
 
 /**

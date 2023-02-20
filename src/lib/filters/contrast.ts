@@ -13,8 +13,8 @@ export function contrast(rgb: RGB, amount: number): RGB {
     b: ((rgb.b - 128) * amount) / 100 + 128,
   };
   return {
-    r: c.r < 0 ? 0 : c.r > 255 ? 255 : Math.round(c.r) as Hexadecimal,
-    g: c.g < 0 ? 0 : c.g > 255 ? 255 : Math.round(c.g) as Hexadecimal,
-    b: c.b < 0 ? 0 : c.b > 255 ? 255 : Math.round(c.b) as Hexadecimal,
+    r: c.r < 0 ? 0 : c.r > 255 ? 255 : (Math.round(c.r) as Hexadecimal),
+    g: c.g < 0 ? 0 : c.g > 255 ? 255 : (Math.round(c.g) as Hexadecimal),
+    b: c.b < 0 ? 0 : c.b > 255 ? 255 : (Math.round(c.b) as Hexadecimal),
   };
 }
