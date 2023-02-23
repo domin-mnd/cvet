@@ -82,7 +82,7 @@ test("Tints", () => {
     "#a7e384",
     "#b8e99c",
     "#c9eeb4",
-    "#daf4cc"
+    "#daf4cc",
   ]);
 
   expect(tints("#62C62C", 10)).toStrictEqual([
@@ -95,7 +95,7 @@ test("Tints", () => {
     "#b7e99c",
     "#c5edb0",
     "#d4f2c4",
-    "#e3f6d8"
+    "#e3f6d8",
   ]);
 });
 

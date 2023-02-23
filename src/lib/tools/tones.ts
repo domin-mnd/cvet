@@ -21,7 +21,7 @@ export function tones(color: HEX, quantity: number = 8): HEX[] {
     // Next element in array
     // Would be contrast 1*n, 2*n, 3*n, ... 100
     colorMap.color = initialColor;
-    return colorMap.contrast(contrasts * (i + 1) as Amount).hex;
+    return colorMap.contrast((contrasts * (i + 1)) as Amount).hex;
   });
 
   return colors.reverse() as HEX[];
