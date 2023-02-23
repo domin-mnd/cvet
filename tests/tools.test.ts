@@ -40,14 +40,27 @@ test("Rainbow", () => {
 
 test("Shades", () => {
   expect(shades("#62C62C")).toStrictEqual([
-    "#4e9e24",
-    "#448a20",
-    "#3a761b",
-    "#306216",
-    "#264e12",
-    "#1c3a0d",
-    "#122609",
-    "#091204",
+    "#62c62c",
+    "#57b027",
+    "#4c9a22",
+    "#41841d",
+    "#366e18",
+    "#2b5813",
+    "#20420e",
+    "#152c09",
+  ]);
+
+  expect(shades("#62C62C", 10)).toStrictEqual([
+    "#62c62c",
+    "#59b428",
+    "#50a224",
+    "#479020",
+    "#3e7e1c",
+    "#356c18",
+    "#2c5a14",
+    "#234810",
+    "#1a360c",
+    "#112408",
   ]);
 });
 
@@ -62,19 +75,45 @@ test("Square", () => {
 
 test("Tints", () => {
   expect(tints("#62C62C")).toStrictEqual([
-    "#7fd850",
-    "#8fdd66",
-    "#9fe27c",
-    "#afe792",
-    "#bfeca8",
-    "#cff1be",
-    "#dff6d4",
-    "#effbea",
+    "#62c62c",
+    "#71d43c",
+    "#83d954",
+    "#95de6c",
+    "#a7e384",
+    "#b8e99c",
+    "#c9eeb4",
+    "#daf4cc"
+  ]);
+
+  expect(tints("#62C62C", 10)).toStrictEqual([
+    "#62c62c",
+    "#6ed338",
+    "#7dd74c",
+    "#8bdb60",
+    "#99df74",
+    "#a8e488",
+    "#b7e99c",
+    "#c5edb0",
+    "#d4f2c4",
+    "#e3f6d8"
   ]);
 });
 
 test("Tones", () => {
   expect(tones("#62C62C")).toStrictEqual([
+    "#62c62c",
+    "#66bd37",
+    "#6ab541",
+    "#6dac4c",
+    "#71a356",
+    "#759a61",
+    "#79926b",
+    "#7c8976",
+  ]);
+
+  expect(tones("#62C62C", 10)).toStrictEqual([
+    "#62c62c",
+    "#65bf34",
     "#68b83d",
     "#6bb145",
     "#6eaa4e",

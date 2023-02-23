@@ -3,19 +3,22 @@ import { Filter } from "../classes/filter";
 import { hslToRgb } from "../utils";
 
 /**
- * Generate an octad of tints (8 colors) from the provided color
+ * Generate an array of tints from the provided color
  * @param {HEX} color The color used to generate tints
- * @returns {[HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX]} An array of HEX colors
+ * @param {number} quantity Amount of tints to generate (includes initial color)
+ * @returns {HEX[]} An array of HEX colors
  */
-export function tints(color: HEX): [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
+export function tints(color: HEX, quantity: number = 8): HEX[] {
   const colorMap = new Filter(color, "HEX");
-  // Find the tint light to add color, to get octad
-  const light = (100 - colorMap.hsl.l) / 10;
+  // Find the tint light to add color, to get an array
+  // Remove 1 from quantity to not get complete white color
+  // That shifts palette to center
+  const light = (100 - colorMap.hsl.l) / (quantity + 1);
 
   // Remove the next tint
-  colorMap.color = hslToRgb({ ...colorMap.hsl, l: colorMap.hsl.l + light });
+  // colorMap.color = hslToRgb({ ...colorMap.hsl, l: colorMap.hsl.l + light });
 
-  const colors = Array.from({ length: 8 }, () => {
+  const colors = Array.from({ length: quantity - 1 }, () => {
     // Adjust the tint using addition instead of lighten's multiplication
     const hsl = colorMap.hsl,
       adjust = hsl.l + light;
@@ -24,5 +27,5 @@ export function tints(color: HEX): [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
     return colorMap.hex;
   });
 
-  return colors as [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX];
+  return [color.toLowerCase(), ...colors] as HEX[];
 }

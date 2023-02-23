@@ -3,19 +3,20 @@ import { Filter } from "../classes/filter";
 import { hslToRgb } from "../utils";
 
 /**
- * Generate an octad of shades (8 colors) from the provided color
+ * Generate an array of shades from the provided color
  * @param {HEX} color The color used to generate shades
- * @returns {[HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX]} An array of HEX colors
+ * @param {number} quantity Amount of shades to generate (includes initial color)
+ * @returns {HEX[]} An array of HEX colors
  */
-export function shades(color: HEX): [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
+export function shades(color: HEX, quantity: number = 8): HEX[] {
   const colorMap = new Filter(color, "HEX");
   // Find the shade light to subtract color, to get octad
-  const light = colorMap.hsl.l / 10;
+  const light = colorMap.hsl.l / (quantity + 1);
 
   // Remove the next shade
-  colorMap.color = hslToRgb({ ...colorMap.hsl, l: colorMap.hsl.l - light });
+  // colorMap.color = hslToRgb({ ...colorMap.hsl, l: colorMap.hsl.l - light });
 
-  const colors = Array.from({ length: 8 }, () => {
+  const colors = Array.from({ length: quantity - 1 }, () => {
     // Adjust the shade using addition instead of darken's multiplication
     const hsl = colorMap.hsl,
       adjust = hsl.l - light;
@@ -24,5 +25,5 @@ export function shades(color: HEX): [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
     return colorMap.hex;
   });
 
-  return colors as [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX];
+  return [color.toLowerCase(), ...colors] as HEX[];
 }

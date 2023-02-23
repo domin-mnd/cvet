@@ -2,24 +2,27 @@ import type { Amount, HEX } from "@cvet/types";
 import { Filter } from "../classes/filter";
 
 /**
- * Generate an octad of tones (8 colors) from the provided color
+ * Generate an array of tones from the provided color
  * @param {HEX} color The color used to generate tones
- * @returns {[HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX]} An array of HEX colors
+ * @param {number} quantity Amount of tones to generate (includes initial color)
+ * @returns {HEX[]} An array of HEX colors
  */
-export function tones(color: HEX): [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
+export function tones(color: HEX, quantity: number = 8): HEX[] {
   const colorMap = new Filter(color, "HEX");
   const initialColor = colorMap.color;
+  // Find the tone contrast to add color, to get an array, 100 - initial color
+  const contrasts = 100 / quantity;
 
   // Remove the next tone
-  colorMap.contrast(90);
+  // colorMap.contrast(90);
 
-  const colors = Array.from({ length: 8 }, (_, i) => {
+  const colors = Array.from({ length: quantity }, (_, i) => {
     // Reset the instance so that
     // Next element in array
-    // Would be contrast 10, 20, 30, ... 80
+    // Would be contrast 1*n, 2*n, 3*n, ... 100
     colorMap.color = initialColor;
-    return colorMap.contrast((10 * (i + 1)) as Amount).hex;
+    return colorMap.contrast(contrasts * (i + 1) as Amount).hex;
   });
 
-  return colors.reverse() as [HEX, HEX, HEX, HEX, HEX, HEX, HEX, HEX];
+  return colors.reverse() as HEX[];
 }
