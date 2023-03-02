@@ -97,13 +97,13 @@ As you can see the instance changes as filter is applied.
 
 Here's a parameter list for each of the filter:
 
-- contrast - An amount to adjust the contrast of the color (0-100+)
-- grayscale - An amount to adjust the grayscale of the color where 0 is complete grayscale (0-100)
-- invert - No parameters needed
-- lighten - An amount to lighten the color (0-100)
-- darken - An amount to darken the color (0-100)
-- rotateHue - Degree to rotate the hue (0-360)
-- saturate - An amount to saturate the color by (0-100)
+- `contrast` - An amount to adjust the contrast of the color (0-100+)
+- `grayscale` - An amount to adjust the grayscale of the color where 0 is complete grayscale (0-100)
+- `invert` - No parameters needed
+- `lighten` - An amount to lighten the color (0-100)
+- `darken` - An amount to darken the color (0-100)
+- `rotateHue` - Degree to rotate the hue (0-360)
+- `saturate` - An amount to saturate the color by (0-100)
 
 ## Tools
 
