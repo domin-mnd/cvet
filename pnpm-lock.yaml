@@ -6,8 +6,8 @@ settings:
 
 dependencies:
   '@cvet/types':
-    specifier: ^2.2.8
-    version: 2.2.8
+    specifier: ^3.0.0
+    version: 3.0.0
 
 devDependencies:
   '@types/jest':
@@ -362,8 +362,8 @@ packages:
     resolution: {integrity: sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==}
     dev: true
 
-  /@cvet/types@2.2.8:
-    resolution: {integrity: sha512-RD2awYRjw1tW8kV4ZHf3OBZMFjXxSp0K6oAWB3Y4tixatnVETzCIJTNh24v21BMgqTEQv9W3Az9YA0QxZJtKDw==}
+  /@cvet/types@3.0.0:
+    resolution: {integrity: sha512-JKU7Ux50+c6o7RzmxtZ8m20LUI5VIHF1GPWNV1NJRA0dS9qCa/mGNXy6l7qU019hBJJLalC5/KgD/PbBeMZH1w==}
     dev: false
 
   /@istanbuljs/load-nyc-config@1.1.0:

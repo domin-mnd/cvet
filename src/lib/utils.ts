@@ -1,25 +1,28 @@
 import type { HEX, RGB, HSL, CMYK } from "@cvet/types";
 import { Hexadecimal } from "../../types";
 
-/** Add 00 pads for RGB parts of HEX color */
+/**
+ * Add 00 pads for RGB parts of HEX color.
+ * @deprecated Soon to be removed. Instead use number shifting: `(x | 1 << 8).toString(16).slice(1);`.
+ */
 export function padHEX(num: number | string, size: number = 2): string {
   let s = num.toString();
   while (s.length < size) s = "0" + s;
   return s;
 }
 
-/** Generate a random HEX color */
+/** Generate a random HEX color. */
 export const randomColor = () => {
   const random = padHEX((((1 << 24) * Math.random()) | 0).toString(16), 6);
   return `#${random}` as HEX;
 };
 
 /**
- * Convert HUE to RGB
+ * Convert HUE to RGB.
  * @param {number} p
  * @param {number} q
  * @param {number} t
- * @returns {number} A number representing RGB color
+ * @returns {number} A number representing RGB color.
  */
 export function hueToRgb(p: number, q: number, t: number): number {
   if (t < 0) t += 1;
@@ -31,9 +34,9 @@ export function hueToRgb(p: number, q: number, t: number): number {
 }
 
 /**
- * Convert HEX color to RGB
- * @param {HEX} hex An HEX color used to convert to RGB
- * @returns {RGB} An RGB color
+ * Convert HEX color to RGB.
+ * @param {HEX} hex An HEX color used to convert to RGB.
+ * @returns {RGB} An RGB color.
  */
 export function hexToRgb(hex: HEX): RGB {
   const r = parseInt(hex.slice(1, 3), 16) as Hexadecimal;
@@ -43,9 +46,9 @@ export function hexToRgb(hex: HEX): RGB {
 }
 
 /**
- * Convert HSL color to RGB
- * @param {HSL} hsl An HSL color used to convert to RGB
- * @returns {RGB} An RGB color
+ * Convert HSL color to RGB.
+ * @param {HSL} hsl An HSL color used to convert to RGB.
+ * @returns {RGB} An RGB color.
  */
 export function hslToRgb(hsl: HSL): RGB {
   let r, g, b;
@@ -72,9 +75,9 @@ export function hslToRgb(hsl: HSL): RGB {
 }
 
 /**
- * Convert an CMYK color to RGB
- * @param {CMYK} cmyk An CMYK color used to convert to RGB
- * @returns {RGB} An RGB color
+ * Convert an CMYK color to RGB.
+ * @param {CMYK} cmyk An CMYK color used to convert to RGB.
+ * @returns {RGB} An RGB color.
  */
 export function cmykToRgb(cmyk: CMYK): RGB {
   const c = cmyk.c;
@@ -92,9 +95,53 @@ export function cmykToRgb(cmyk: CMYK): RGB {
 }
 
 /**
- * Find the luminosity of a color
- * @param {RGB} rgb An RGB color used to find luminosity
- * @returns {number} The luminosity of the color
+ * Convert RGB color model to HSL.
+ * @param {Hexadecimal} r Red value 0-255.
+ * @param {Hexadecimal} g Green value 0-255.
+ * @param {Hexadecimal} b Blue value 0-255.
+ * @returns {HSL} HSL color
+ */
+export function rgbToHsl(r: Hexadecimal, g: Hexadecimal, b: Hexadecimal): HSL {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  let h = 0;
+  let s = 0;
+  let l = (max + min) / 2;
+
+  if (max === min) {
+    h = s = 0;
+  } else {
+    const d = max - min;
+    s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+    switch (max) {
+      case r:
+        h = (g - b) / d + (g < b ? 6 : 0);
+        break;
+      case g:
+        h = (b - r) / d + 2;
+        break;
+      case b:
+        h = (r - g) / d + 4;
+        break;
+    }
+    h /= 6;
+  }
+
+  // Convert to percentage
+  h *= 360;
+  s *= 100;
+  l *= 100;
+
+  return { h, s, l };
+}
+
+/**
+ * Find the luminosity of a color.
+ * @param {RGB} rgb An RGB color used to find luminosity.
+ * @returns {number} The luminosity of the color.
  */
 export function luminosity(rgb: RGB): number {
   const a = [rgb.r, rgb.g, rgb.b].map((v) => {

@@ -34,6 +34,6 @@
     "ts-jest": "^29.1.0"
   },
   "dependencies": {
-    "@cvet/types": "^2.2.8"
+    "@cvet/types": "^3.0.0"
   }
 }
