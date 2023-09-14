@@ -30,7 +30,7 @@ export class Filter extends Palette {
    * @param {Amount} amount The amount to adjust the contrast by. 0-100%
    */
   contrast(amount: number): Filter {
-    this.color = contrast(this.rgb, amount);
+    this.color = contrast(this.color, amount);
     return this;
   }
 
@@ -39,7 +39,7 @@ export class Filter extends Palette {
    * @param {Amount} amount The amount to adjust the grayscale by. 0-100%
    */
   grayscale(amount: Amount): Filter {
-    this.color = grayscale(this.rgb, amount);
+    this.color = grayscale(this.color, amount);
     return this;
   }
 
@@ -47,7 +47,7 @@ export class Filter extends Palette {
    * Invert a color.
    */
   invert(): Filter {
-    this.color = invert(this.rgb);
+    this.color = invert(this.color);
     return this;
   }
 
@@ -56,7 +56,7 @@ export class Filter extends Palette {
    * @param {Amount} amount The amount to lighten the color by. 0-100%
    */
   lighten(amount: Amount): Filter {
-    this.color = lighten(this.hsl, amount);
+    this.color = lighten(this.alpha === null ? this.hsl : this.hsla, amount);
     return this;
   }
 
@@ -65,7 +65,7 @@ export class Filter extends Palette {
    * @param {Amount} amount The amount to darken the color by. 0-100%
    */
   darken(amount: Amount): Filter {
-    this.color = darken(this.hsl, amount);
+    this.color = darken(this.alpha === null ? this.hsl : this.hsla, amount);
     return this;
   }
 
@@ -74,7 +74,7 @@ export class Filter extends Palette {
    * @param {Degrees} degrees The amount to rotate the hue by. 0-360
    */
   rotateHue(degrees: Degrees): Filter {
-    this.color = rotateHue(this.hsl, degrees);
+    this.color = rotateHue(this.alpha === null ? this.hsl : this.hsla, degrees);
     return this;
   }
 
@@ -83,7 +83,7 @@ export class Filter extends Palette {
    * @param {Amount} amount The amount to saturate the color by. 0-100%
    */
   saturate(amount: Amount): Filter {
-    this.color = saturate(this.hsl, amount);
+    this.color = saturate(this.alpha === null ? this.hsl : this.hsla, amount);
     return this;
   }
 }

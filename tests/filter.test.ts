@@ -7,31 +7,52 @@ test("Filter class instance", () => {
 });
 
 test("Invert filter", () => {
-  const filter = new Filter("#00FF00", "HEX");
+  let filter = new Filter("#00FF00", "HEX");
 
   expect(filter.invert().hex).toBe("#ff00ff");
+
+  // with alpha channel
+  filter = new Filter("#00FF0033", "HEX");
+
+  expect(filter.invert().hex).toBe("#ff00ff33");
 });
 
 test("Grayscale filter", () => {
-  const filter = new Filter("#00FF00", "HEX");
+  let filter = new Filter("#00FF00", "HEX");
 
   expect(filter.grayscale(0).hex).toBe("#969696");
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.grayscale(100).hex).toBe("#00ff00");
+
+  // with alpha channel
+  filter = new Filter("#00FF0033", "HEX");
+
+  expect(filter.grayscale(0).hex).toBe("#96969633");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.grayscale(100).hex).toBe("#00ff0033");
 });
 
 test("Contrast filter", () => {
-  const filter = new Filter("#00FF00", "HEX");
+  let filter = new Filter("#00FF00", "HEX");
 
   expect(filter.contrast(0).hex).toBe("#808080");
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.contrast(100).hex).toBe("#00ff00");
+
+  // with alpha channel
+  filter = new Filter("#00FF0033", "HEX");
+
+  expect(filter.contrast(0).hex).toBe("#80808033");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.contrast(100).hex).toBe("#00ff0033");
 });
 
 test("Lighten/Darken filters", () => {
-  const filter = new Filter("#00FF00", "HEX");
+  let filter = new Filter("#00FF00", "HEX");
 
   // Lighten with instance reset
   expect(filter.lighten(0).hex).toBe("#00ff00");
@@ -45,10 +66,26 @@ test("Lighten/Darken filters", () => {
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.darken(100).hex).toBe("#000000");
+
+  // with alpha channel
+  filter = new Filter("#00FF0033", "HEX");
+
+  // Lighten with instance reset
+  expect(filter.lighten(0).hex).toBe("#00ff0033");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.lighten(100).hex).toBe("#ffffff33");
+
+  // Darken with instance reset
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.darken(0).hex).toBe("#00ff0033");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.darken(100).hex).toBe("#00000033");
 });
 
 test("Rotate hue filter", () => {
-  const filter = new Filter("#00FF00", "HEX");
+  let filter = new Filter("#00FF00", "HEX");
 
   expect(filter.rotateHue(0).hex).toBe("#00ff00");
 
@@ -57,13 +94,32 @@ test("Rotate hue filter", () => {
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.rotateHue(240).hex).toBe("#ff0000");
+
+  // with alpha channel
+  filter = new Filter("#00FF0033", "HEX");
+
+  expect(filter.rotateHue(0).hex).toBe("#00ff0033");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.rotateHue(120).hex).toBe("#0000ff33");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.rotateHue(240).hex).toBe("#ff000033");
 });
 
 test("Saturate filter", () => {
-  const filter = new Filter("#00FF00", "HEX");
+  let filter = new Filter("#00FF00", "HEX");
 
   expect(filter.saturate(0).hex).toBe("#808080");
 
   filter.color = { r: 0, g: 255, b: 0 };
   expect(filter.saturate(100).hex).toBe("#00ff00");
+
+  // with alpha channel
+  filter = new Filter("#00FF0033", "HEX");
+
+  expect(filter.saturate(0).hex).toBe("#80808033");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.saturate(100).hex).toBe("#00ff0033");
 });
