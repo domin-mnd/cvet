@@ -158,29 +158,30 @@ export function luminosity(rgb: RGB): number {
  * @param {Color} color - The color object to be converted.
  * @return {string} The string representation of the color.
  */
-export function stringify(color: Color): string {
+export function stringify<T extends Color = Color>(color: T): string {
   // HEX is already a string
-  if (typeof color === "string") return color;
+  if (typeof color === "string") return color.toLowerCase();
+  const nonHex = color as Exclude<Color, HEX>;
 
   // RGB & RGBA
-  if ("r" in color && "g" in color && "b" in color) {
-    if ("a" in color) {
-      return `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a / 100})`;
+  if ("r" in nonHex && "g" in nonHex && "b" in nonHex) {
+    if ("a" in nonHex) {
+      return `rgba(${nonHex.r}, ${nonHex.g}, ${nonHex.b}, ${nonHex.a / 100})`;
     }
-    return `rgb(${color.r}, ${color.g}, ${color.b})`;
+    return `rgb(${nonHex.r}, ${nonHex.g}, ${nonHex.b})`;
   }
 
   // HSL & HSLA
-  if ("h" in color && "s" in color && "l" in color) {
-    if ("a" in color) {
-      return `hsla(${color.h}, ${color.s}%, ${color.l}%, ${color.a / 100})`;
+  if ("h" in nonHex && "s" in nonHex && "l" in nonHex) {
+    if ("a" in nonHex) {
+      return `hsla(${nonHex.h}, ${nonHex.s}%, ${nonHex.l}%, ${nonHex.a / 100})`;
     }
-    return `hsl(${color.h}, ${color.s}%, ${color.l}%)`;
+    return `hsl(${nonHex.h}, ${nonHex.s}%, ${nonHex.l}%)`;
   }
 
   // CMYK
-  if ("c" in color && "m" in color && "y" in color && "k" in color) {
-    return `cmyk(${color.c}%, ${color.m}%, ${color.y}%, ${color.k}%)`;
+  if ("c" in nonHex && "m" in nonHex && "y" in nonHex && "k" in nonHex) {
+    return `cmyk(${nonHex.c}%, ${nonHex.m}%, ${nonHex.y}%, ${nonHex.k}%)`;
   }
 
   throw new Error("Invalid color");
