@@ -1,4 +1,4 @@
-import type { HEX, RGB, HSL, CMYK, RGBA } from "@cvet/types";
+import type { HEX, RGB, HSL, CMYK, RGBA, Color } from "@cvet/types";
 import { Hexadecimal } from "../../types";
 
 /**
@@ -150,4 +150,38 @@ export function luminosity(rgb: RGB): number {
     return v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4;
   });
   return a[0] * 0.2126 + a[1] * 0.7152 + a[2] * 0.0722;
+}
+
+/**
+ * Converts a color object to a string representation for css purposes.
+ *
+ * @param {Color} color - The color object to be converted.
+ * @return {string} The string representation of the color.
+ */
+export function stringify(color: Color): string {
+  // HEX is already a string
+  if (typeof color === "string") return color;
+
+  // RGB & RGBA
+  if ("r" in color && "g" in color && "b" in color) {
+    if ("a" in color) {
+      return `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a / 100})`;
+    }
+    return `rgb(${color.r}, ${color.g}, ${color.b})`;
+  }
+
+  // HSL & HSLA
+  if ("h" in color && "s" in color && "l" in color) {
+    if ("a" in color) {
+      return `hsla(${color.h}, ${color.s}%, ${color.l}%, ${color.a / 100})`;
+    }
+    return `hsl(${color.h}, ${color.s}%, ${color.l}%)`;
+  }
+
+  // CMYK
+  if ("c" in color && "m" in color && "y" in color && "k" in color) {
+    return `cmyk(${color.c}%, ${color.m}%, ${color.y}%, ${color.k}%)`;
+  }
+
+  throw new Error("Invalid color");
 }
