@@ -108,6 +108,7 @@ Here's a parameter list for each of the filter:
 - `darken` - An amount to darken the color (0-100)
 - `rotateHue` - Degree to rotate the hue (0-360)
 - `saturate` - An amount to saturate the color by (0-100)
+- `blend` - Second RGB or RGBA color & an amount to blend the color (0-100)
 
 ## Tools
 
