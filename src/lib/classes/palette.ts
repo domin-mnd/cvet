@@ -90,10 +90,13 @@ export class Palette {
 
   /** Get HEX from MAP. May include alpha channel if it's MAP is RGBA. */
   get hex(): HEX {
-    const r = (this.red | 1 << 8).toString(16).slice(1);
-    const g = (this.green | 1 << 8).toString(16).slice(1);
-    const b = (this.blue | 1 << 8).toString(16).slice(1);
-    const a = this.alpha === null ? "" : ((this.alpha * 2.55) | 1 << 8).toString(16).slice(1);
+    const r = (this.red | (1 << 8)).toString(16).slice(1);
+    const g = (this.green | (1 << 8)).toString(16).slice(1);
+    const b = (this.blue | (1 << 8)).toString(16).slice(1);
+    const a =
+      this.alpha === null
+        ? ""
+        : ((this.alpha * 2.55) | (1 << 8)).toString(16).slice(1);
 
     return `#${r}${g}${b}${a}` as HEX;
   }

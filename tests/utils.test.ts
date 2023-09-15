@@ -59,6 +59,10 @@ test("stringify", () => {
   expect(stringify({ r: 255, g: 0, b: 0 })).toBe("rgb(255, 0, 0)");
   expect(stringify({ r: 255, g: 0, b: 0, a: 20 })).toBe("rgba(255, 0, 0, 0.2)");
   expect(stringify({ h: 0, s: 100, l: 50 })).toBe("hsl(0, 100%, 50%)");
-  expect(stringify({ h: 0, s: 100, l: 50, a: 20 })).toBe("hsla(0, 100%, 50%, 0.2)");
-  expect(stringify({ c: 0, m: 100, y: 100, k: 0 })).toBe("cmyk(0%, 100%, 100%, 0%)");
-})
+  expect(stringify({ h: 0, s: 100, l: 50, a: 20 })).toBe(
+    "hsla(0, 100%, 50%, 0.2)",
+  );
+  expect(stringify({ c: 0, m: 100, y: 100, k: 0 })).toBe(
+    "cmyk(0%, 100%, 100%, 0%)",
+  );
+});

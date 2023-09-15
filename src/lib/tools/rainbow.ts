@@ -11,7 +11,7 @@ export function rainbow(color: HEX): [HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
   const degrees = (360 / 7) as Degrees;
   const colors = Array.from(
     { length: 6 },
-    () => colorMap.rotateHue(degrees).hex
+    () => colorMap.rotateHue(degrees).hex,
   );
 
   return [color.toLowerCase(), ...colors] as [
@@ -21,6 +21,6 @@ export function rainbow(color: HEX): [HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
     HEX,
     HEX,
     HEX,
-    HEX
+    HEX,
   ];
 }

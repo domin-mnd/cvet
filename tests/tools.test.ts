@@ -26,7 +26,11 @@ test("Combination", () => {
 
 test("Analogous", () => {
   expect(analogous("#62C62C")).toStrictEqual(["#62c62c", "#2cc643", "#afc62c"]);
-  expect(analogous("#62C62C33")).toStrictEqual(["#62c62c33", "#2cc64333", "#afc62c33"]);
+  expect(analogous("#62C62C33")).toStrictEqual([
+    "#62c62c33",
+    "#2cc64333",
+    "#afc62c33",
+  ]);
 });
 
 test("Complementary", () => {
@@ -224,5 +228,9 @@ test("Tones", () => {
 
 test("Triade", () => {
   expect(triade("#62C62C")).toStrictEqual(["#62c62c", "#2c62c6", "#c62c62"]);
-  expect(triade("#62C62C33")).toStrictEqual(["#62c62c33", "#2c62c633", "#c62c6233"]);
+  expect(triade("#62C62C33")).toStrictEqual([
+    "#62c62c33",
+    "#2c62c633",
+    "#c62c6233",
+  ]);
 });

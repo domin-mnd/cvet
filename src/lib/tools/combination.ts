@@ -10,7 +10,7 @@ import { Filter } from "../classes/filter";
  */
 export function combination(
   combination: number = 2,
-  initialColor: HEX = randomColor()
+  initialColor: HEX = randomColor(),
 ): HEX[] {
   if (combination <= 0) throw new Error("Combination must be greater than 0");
   if (combination > 360) throw new Error("Combination must be less than 360");
@@ -19,7 +19,7 @@ export function combination(
   const colorMap = new Filter(initialColor, "HEX");
   const colors = Array.from(
     { length: combination - 1 },
-    () => colorMap.rotateHue(degrees).hex
+    () => colorMap.rotateHue(degrees).hex,
   );
 
   return [initialColor.toLowerCase() as HEX, ...colors];
