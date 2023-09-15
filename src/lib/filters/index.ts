@@ -1,3 +1,4 @@
+export * from "./blend";
 export * from "./contrast";
 export * from "./grayscale";
 export * from "./invert";
