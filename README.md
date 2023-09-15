@@ -170,6 +170,7 @@ There are also some utilities that would ease your work with the package:
 - Finding the luminosity of the color - `luminosity(RGB)`
 - Random HEX color picker - `randomColor()`
 - 00 pad for HEX - `padHEX(R/G/B value of HEX)`
+- Color converter to css string - `stringify(color)`
 
 # Documentation
 
