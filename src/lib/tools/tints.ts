@@ -23,7 +23,10 @@ export function tints(color: HEX, quantity: number = 8): HEX[] {
     const hsl = colorMap.hsl,
       adjust = hsl.l + light;
 
-    colorMap.color = hslToRgb({ ...hsl, l: adjust > 100 ? 100 : adjust });
+    colorMap.color = {
+      ...hslToRgb({ ...hsl, l: adjust > 100 ? 100 : adjust }),
+      ...(colorMap.alpha !== null && { a: colorMap.alpha }),
+    };
     return colorMap.hex;
   });
 

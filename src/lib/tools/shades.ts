@@ -21,7 +21,10 @@ export function shades(color: HEX, quantity: number = 8): HEX[] {
     const hsl = colorMap.hsl,
       adjust = hsl.l - light;
 
-    colorMap.color = hslToRgb({ ...hsl, l: adjust < 0 ? 0 : adjust });
+    colorMap.color = {
+      ...hslToRgb({ ...hsl, l: adjust < 0 ? 0 : adjust }),
+      ...(colorMap.alpha !== null && { a: colorMap.alpha }),
+    };
     return colorMap.hex;
   });
 
