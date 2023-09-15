@@ -39,11 +39,13 @@ const filterColor = new Filter(
 
 Both classes require 2 parameters from users: A color & its type.
 
-There are 5 color types you can use as second parameter:
+There are 7 color types you can use as second parameter:
 
-- HEX - Written as string (`"#FF0000"`)
+- HEX - Written as string (`"#FF0000"` or `#FF000033`)
 - RGB - Written as an object with r, g, b keys (`{ r: 255, g: 0, b: 0 }`)
+- RGBA - Written as an object same as RGB but with alpha channel key (`{ r: 255, g: 0, b: 0, a: 20 }`)
 - HSL - Written as an object as well with corresponding keys (`{ h: 0, s: 100, l: 50 }`)
+- HSLA - Written as an object same as HSL but with alpha channel key (`{ h: 0, s: 100, l: 50, a: 20 }`)
 - CMYK - Written the same as RGB & HSL (`{ c: 0, m: 100, y: 100, k: 0 }`)
 - MAP - Is basically RGB
 
@@ -60,8 +62,10 @@ console.log(color.red); // Returns red value in the color
 console.log(color.green); // Returns green value in the color
 console.log(color.blue); // Returns blue value in the color
 console.log(color.hex); // Returns converted MAP to HEX
-console.log(color.rgb); // Returns RGB
-console.log(color.hsl); // Returns converted MAP to HSL
+console.log(color.rgb); // Returns RGB, will cut the alpha part
+console.log(color.rgba); // Returns RGBA
+console.log(color.hsl); // Returns converted MAP to HSL, will cut the alpha part
+console.log(color.hsla); // Returns converted MAP to HSL
 console.log(color.cmyk); // Returns converted MAP to CMYK
 ```
 
