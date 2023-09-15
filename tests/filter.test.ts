@@ -123,3 +123,28 @@ test("Saturate filter", () => {
   filter.color = { r: 0, g: 255, b: 0, a: 20 };
   expect(filter.saturate(100).hex).toBe("#00ff0033");
 });
+
+test("Blend filter", () => {
+  let filter = new Filter("#00FF00", "HEX");
+  let anotherColor = new Filter("#FF0000", "HEX").rgb;
+
+  expect(filter.blend(anotherColor, 0).hex).toBe("#ff0000");
+
+  filter.color = { r: 0, g: 255, b: 0 };
+  expect(filter.blend(anotherColor, 50).hex).toBe("#7f7f00");
+
+  filter.color = { r: 0, g: 255, b: 0 };
+  expect(filter.blend(anotherColor, 100).hex).toBe("#00ff00");
+
+  // with alpha channel
+  filter = new Filter("#00FF0033", "HEX");
+  anotherColor = new Filter("#FF000033", "HEX").rgba;
+
+  expect(filter.blend(anotherColor, 0).hex).toBe("#ff000033");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.blend(anotherColor, 50).hex).toBe("#7f7f0033");
+
+  filter.color = { r: 0, g: 255, b: 0, a: 20 };
+  expect(filter.blend(anotherColor, 100).hex).toBe("#00ff0033");
+});
