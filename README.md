@@ -61,6 +61,7 @@ console.log(color.color); // Returns RGB color (MAP), console logging the class 
 console.log(color.red); // Returns red value in the color
 console.log(color.green); // Returns green value in the color
 console.log(color.blue); // Returns blue value in the color
+console.log(color.alpha); // Returns alpha channel value in the color
 console.log(color.hex); // Returns converted MAP to HEX
 console.log(color.rgb); // Returns RGB, will cut the alpha part
 console.log(color.rgba); // Returns RGBA
@@ -131,7 +132,8 @@ Tools like `complementary`, `triade`, `square`, `rainbow` work almost identicall
 - `square` acts the same and returns a square (4) array of colors with a provided initial color
 - `rainbow` returns a full rainbow (7) array of colors with a provided initial color
 
-> Note: Unlike `combination` tools above require a single parameter - HEX color (no default set).
+> **Note**
+> Unlike `combination` tools above require a single parameter - HEX color (no default set).
 
 Other than these there's an `analogous` tool to return analogous colors (30 degrees rotated hue clockwise & counterclockwise):
 
@@ -170,8 +172,12 @@ There are also some utilities that would ease your work with the package:
 - Hue/HEX/HSL/CMYK to RGB converters - `hexToRgb(HEX), hslToRgb(HSL) etc.`
 - Finding the luminosity of the color - `luminosity(RGB)`
 - Random HEX color picker - `randomColor()`
-- 00 pad for HEX - `padHEX(R/G/B value of HEX)`
+- ~~00 pad for HEX - `padHEX(R/G/B value of HEX)`~~
 - Color converter to css string - `stringify(color)`
+
+> **Warning**
+> As an alternative to padHEX please use shifting method - `(x | 1 << 8).toString(16).slice(1)`.
+> Soon it will be removed.
 
 # Documentation
 
