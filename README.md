@@ -177,7 +177,7 @@ There are also some utilities that would ease your work with the package:
 
 > **Warning**
 > As an alternative to padHEX please use shifting method - `(x | 1 << 8).toString(16).slice(1)`.
-> Soon it will be removed.
+> Soon the utility will be removed.
 
 # Documentation
 
