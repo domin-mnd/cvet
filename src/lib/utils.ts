@@ -1,5 +1,5 @@
 import type { HEX, RGB, HSL, CMYK, RGBA, Color } from "@cvet/types";
-import { Hexadecimal } from "../../types";
+import type { Hexadecimal } from "../../types";
 
 /**
  * Add 00 pads for RGB parts of HEX color.

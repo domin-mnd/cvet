@@ -1,4 +1,4 @@
-import { Amount, Hexadecimal, RGB, RGBA } from "@cvet/types";
+import type { Amount, Hexadecimal, RGB, RGBA } from "@cvet/types";
 
 /**
  * Blends two colors based on a given percentage.

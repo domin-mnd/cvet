@@ -1,4 +1,4 @@
-import { Amount, Color, ColorType, Degrees, RGB, RGBA } from "@cvet/types";
+import type { Amount, Color, ColorType, Degrees, RGB, RGBA } from "@cvet/types";
 import {
   blend,
   contrast,
