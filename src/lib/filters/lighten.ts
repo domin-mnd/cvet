@@ -1,5 +1,5 @@
 import type { Amount, HSL, HSLA, RGB, RGBA } from "@cvet/types";
-import { hslToRgb } from "../utils";
+import { hslToRgb } from "../utilities";
 
 /**
  * Lighten a color by a given amount.

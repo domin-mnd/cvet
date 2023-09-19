@@ -1,6 +1,6 @@
 import type { HEX } from "@cvet/types";
 import { Filter } from "../classes/filter";
-import { hslToRgb } from "../utils";
+import { hslToRgb } from "../utilities";
 
 /**
  * Generate an array of tints from the provided color

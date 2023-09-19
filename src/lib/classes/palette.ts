@@ -10,7 +10,7 @@ import type {
   RGBA,
   Hexadecimal,
 } from "@cvet/types";
-import { cmykToRgb, hexToRgb, hslToRgb, rgbToHsl } from "../utils";
+import { cmykToRgb, hexToRgb, hslToRgb, rgbToHsl } from "../utilities";
 
 /**
  * A class that represents a color palette

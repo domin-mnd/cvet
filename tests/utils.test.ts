@@ -7,7 +7,7 @@ import {
   cmykToRgb,
   luminosity,
   stringify,
-} from "../src/lib/utils";
+} from "../src/lib/utilities";
 
 test("PadHEX", () => {
   // 0xFF

@@ -1,5 +1,5 @@
 import type { Degrees, HSL, HSLA, RGB, RGBA } from "@cvet/types";
-import { hslToRgb } from "../utils";
+import { hslToRgb } from "../utilities";
 
 /**
  * Rotate the hue of a color by a given amount.
