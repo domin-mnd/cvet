@@ -1,3 +1,4 @@
+import { Palette } from "../src";
 import {
   padHEX,
   randomColor,
@@ -7,6 +8,7 @@ import {
   cmykToRgb,
   luminosity,
   stringify,
+  detect,
 } from "../src/lib/utilities";
 
 test("PadHEX", () => {
@@ -65,4 +67,15 @@ test("stringify", () => {
   expect(stringify({ c: 0, m: 100, y: 100, k: 0 })).toBe(
     "cmyk(0%, 100%, 100%, 0%)",
   );
+});
+
+test("detect", () => {
+  const color = new Palette("#FF0000", "HEX");
+
+  expect(detect(color.hex)).toBe("HEX");
+  expect(detect(color.rgb)).toBe("RGB");
+  expect(detect(color.rgba)).toBe("RGBA");
+  expect(detect(color.hsl)).toBe("HSL");
+  expect(detect(color.hsla)).toBe("HSLA");
+  expect(detect(color.cmyk)).toBe("CMYK");
 });

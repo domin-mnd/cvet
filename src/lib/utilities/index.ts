@@ -1,4 +1,5 @@
 export * from "./cmykToRgb";
+export * from "./detect";
 export * from "./hexToRgb";
 export * from "./hslToRgb";
 export * from "./hueToRgb";
