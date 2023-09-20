@@ -72,10 +72,33 @@ test("stringify", () => {
 test("detect", () => {
   const color = new Palette("#FF0000", "HEX");
 
-  expect(detect(color.hex)).toBe("HEX");
-  expect(detect(color.rgb)).toBe("RGB");
-  expect(detect(color.rgba)).toBe("RGBA");
-  expect(detect(color.hsl)).toBe("HSL");
-  expect(detect(color.hsla)).toBe("HSLA");
-  expect(detect(color.cmyk)).toBe("CMYK");
+  expect(detect(color.hex)).toStrictEqual({
+    model: "HEX",
+    color: color.hex,
+  });
+
+  expect(detect(color.rgb)).toStrictEqual({
+    model: "RGB",
+    color: color.rgb,
+  });
+
+  expect(detect(color.rgba)).toStrictEqual({
+    model: "RGBA",
+    color: color.rgba,
+  });
+
+  expect(detect(color.hsl)).toStrictEqual({
+    model: "HSL",
+    color: color.hsl,
+  });
+
+  expect(detect(color.hsla)).toStrictEqual({
+    model: "HSLA",
+    color: color.hsla,
+  });
+  
+  expect(detect(color.cmyk)).toStrictEqual({
+    model: "CMYK",
+    color: color.cmyk,
+  });
 });
