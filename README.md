@@ -14,18 +14,27 @@ picking colors for your projects.
 ```bash
 $ npm install cvet
 $ yarn add cvet
+$ pnpm add cvet
 ```
 
 # Usage
 
-To work with palette or filters you have to declare classes (Filter class extends palette):
+To work with palette or filters you have to declare classes (Filter class extends Palette):
 
 ```js
 import { Palette, Filter } from "cvet"; // esm
 const { Palette, Filter } = require("cvet"); // or cjs
 
-const color = new Palette("#FF0000", "HEX");
-const filterColor = new Filter(
+const color = new Palette("#FF0000");
+const filterColor = new Filter({
+  r: 255,
+  g: 0,
+  b: 0,
+});
+
+// Or you can optionally provide a color type to treat the color as you want:
+const detectedColor = new Palette("#FF0000", "HEX");
+const detectedFilterColor = new Filter(
   {
     r: 255,
     g: 0,
@@ -37,7 +46,7 @@ const filterColor = new Filter(
 
 ## Parameters
 
-Both classes require 2 parameters from users: A color & its type.
+Both classes require 1 single color parameter & an optional color type to treat the color strictly.
 
 There are 7 color types you can use as second parameter:
 
@@ -48,8 +57,6 @@ There are 7 color types you can use as second parameter:
 - HSLA - Written as an object same as HSL but with alpha channel key (`{ h: 0, s: 100, l: 50, a: 20 }`)
 - CMYK - Written the same as RGB & HSL (`{ c: 0, m: 100, y: 100, k: 0 }`)
 - MAP - Is basically RGB
-
-> Note: The entire package is typescript friendly.
 
 ## Getters
 
@@ -82,7 +89,8 @@ color.color = {
 };
 ```
 
-However it only accepts RGB / MAP color type so you'd want to use utilities (provided as functions by the package) to convert your CMYK, HEX, HSL values to RGB.
+However it won't let you treat color types as you want. Instead it will detect the color type.
+For instance, providing another color type not matching the initial one won't break anything in your code.
 
 ## Filters
 
@@ -91,7 +99,7 @@ There are 7 filters for your colors you can use: contrast, grayscale, invert, li
 Each of those have different parameters - as the result these methods return the instance so that to invert the color you need to do following actions:
 
 ```js
-const color = new Filter("#FF0000", "HEX");
+const color = new Filter("#FF0000");
 
 console.log(color.rgb); // { r: 255, g: 0, b: 0 }
 console.log(color.invert().rgb); // { r: 0, g: 255, b: 255 }
@@ -113,7 +121,7 @@ Here's a parameter list for each of the filter:
 
 ## Tools
 
-There's a bunch of tools (or utilities) you can use. One is `combination` function that accepts 2 parameters:
+There's a bunch of tools you can use. One is `combination` function that accepts 2 parameters:
 
 - Amount of colors in a combination (default: 2)
 - HEX color of the initial color (default: random)
