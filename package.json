@@ -10,6 +10,7 @@
     "build": "tsup src/index.ts --format=esm,cjs --dts --minify",
     "build-fast": "tsup src/index.ts --format=esm,cjs --no-dts --minify",
     "dev": "pnpm build-fast --watch",
+    "prepublish": "pnpm build",
     "test": "vitest"
   },
   "repository": {
