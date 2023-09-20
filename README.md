@@ -98,6 +98,8 @@ color.color = {
   g: 255,
   b: 255
 };
+
+color.color = "#0000FF";
 ```
 
 However it won't let you treat color types as you want. Instead it will detect the color type.

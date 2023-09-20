@@ -35,7 +35,7 @@ export class Palette {
    * @param {Color} color A color used to convert to MAP.
    * @param {ColorType} [type] Its type.
    */
-  private mapColor(color: Color = this._color, type?: ColorType): ColorMap {
+  private mapColor(color: Color = this._color, type: ColorType): ColorMap {
     switch (type) {
       case "HEX":
         return hexToRgb(color as HEX);
@@ -64,9 +64,9 @@ export class Palette {
     return this._color;
   }
 
-  /** Change mapped color. */
-  set color(color: ColorMap) {
-    this._color = this.mapColor(color, "MAP");
+  /** Change color. Automatically detects model. */
+  set color(color: Color) {
+    this._color = this.mapColor(color, detect(color).model);
   }
 
   /** Get red part of RGB. */
