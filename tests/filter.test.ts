@@ -6,6 +6,12 @@ test("Filter class instance", () => {
   expect(filter).toBeInstanceOf(Filter);
 });
 
+test("Optional color model exception", () => {
+  expect(() => new Filter("#FF0000", "RGB")).toThrowError(
+    "Invalid color type provided"
+  );
+});
+
 test("Invert filter", () => {
   let filter = new Filter("#00FF00", "HEX");
 

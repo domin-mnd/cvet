@@ -30,6 +30,12 @@ test("Optional color model detection", () => {
   });
 });
 
+test("Optional color model exception", () => {
+  expect(() => new Palette("#FF0000", "RGB")).toThrowError(
+    "Invalid color type provided"
+  );
+});
+
 test("Alpha optional color model detection", () => {
   expect(new Palette("#FF000033").hex).toBe("#ff000033");
   expect(new Palette({ r: 255, g: 0, b: 0 }).rgb).toStrictEqual({

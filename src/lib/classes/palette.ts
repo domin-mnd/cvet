@@ -25,7 +25,9 @@ export class Palette {
    * @param {ColorType} [type] A color type used to convert to MAP
    */
   constructor(color: Color, type?: ColorType) {
-    this._color = this.mapColor(color, type);
+    const { model } = detect(color);
+    if (type && model !== type) throw new Error("Invalid color type provided");
+    this._color = this.mapColor(color, type ?? model);
   }
 
   /**
@@ -34,7 +36,7 @@ export class Palette {
    * @param {ColorType} [type] Its type.
    */
   private mapColor(color: Color = this._color, type?: ColorType): ColorMap {
-    switch (type ?? detect(color).model) {
+    switch (type) {
       case "HEX":
         return hexToRgb(color as HEX);
       case "RGB":
