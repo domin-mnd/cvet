@@ -1,4 +1,4 @@
-import type { Amount, Color, ColorType, Degrees, RGB, RGBA } from "@cvet/types";
+import type { Amount, Color, ColorType, Degrees } from "@cvet/types";
 import {
   blend,
   contrast,
@@ -90,10 +90,10 @@ export class Filter extends Palette {
 
   /**
    * Blend 2 colors by a given amount.
-   * @param {RGB | RGBA} color The color to blend origin with. Has to be RGB or RGBA
+   * @param {Color} color The color to blend origin with.
    * @param {Amount} amount The percentage of the first element to be blended with another. 0-100%
    */
-  blend(color: RGB | RGBA, amount: Amount): Filter {
+  blend(color: Color, amount: Amount): Filter {
     this.color = blend(this.color, color, amount);
     return this;
   }
