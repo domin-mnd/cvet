@@ -99,4 +99,8 @@ export class Filter extends Palette {
   }
 }
 
+/**
+ * A filter shorthand (css filters) that can be used to apply filters to a color.
+ * @extends Palette
+ */
 export const filter = (color: Color, type?: ColorType) => new Filter(color, type);

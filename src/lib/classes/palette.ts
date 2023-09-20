@@ -13,16 +13,16 @@ import type {
 import { cmykToRgb, detect, hexToRgb, hslToRgb, rgbToHsl } from "../utilities";
 
 /**
- * A class that represents a color palette
+ * A class that represents a color palette to manipulate with models.
  * @class Palette
  */
 export class Palette {
   private _color: ColorMap;
 
   /**
-   * Create a palette and convert types to MAP (RGB or RGBA)
-   * @param {Color} color A color used to create a palette
-   * @param {ColorType} [type] A color type used to convert to MAP
+   * Create a palette and convert types to MAP (RGB or RGBA).
+   * @param {Color} color A color used to create a palette.
+   * @param {ColorType} [type] A color type used to convert to MAP.
    */
   constructor(color: Color, type?: ColorType) {
     const { model } = detect(color);
@@ -121,7 +121,7 @@ export class Palette {
     };
   }
 
-  /** Get HSL from MAP */
+  /** Get HSL from MAP. */
   get hsl(): HSL {
     const { r, g, b } = this.color;
     return rgbToHsl(r, g, b); // Can't spread because of getter type.
@@ -152,4 +152,5 @@ export class Palette {
   }
 }
 
+/** A shorthand palette function that represents a color palette to manipulate with models. */
 export const palette = (color: Color, type?: ColorType) => new Palette(color, type);
