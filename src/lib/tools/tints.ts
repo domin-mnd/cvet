@@ -1,15 +1,15 @@
-import type { HEX } from "@cvet/types";
-import { Filter } from "../classes/filter";
+import type { Color, HEX } from "@cvet/types";
 import { hslToRgb } from "../utilities";
+import { Filter, palette } from "../classes";
 
 /**
  * Generate an array of tints from the provided color
- * @param {HEX} color The color used to generate tints
+ * @param {Color} color The color used to generate tints
  * @param {number} quantity Amount of tints to generate (includes initial color)
  * @returns {HEX[]} An array of HEX colors
  */
-export function tints(color: HEX, quantity: number = 8): HEX[] {
-  const colorMap = new Filter(color, "HEX");
+export function tints(color: Color, quantity: number = 8): HEX[] {
+  const colorMap = new Filter(color);
   // Find the tint light to add color, to get an array
   // Remove 1 from quantity to not get complete white color
   // That shifts palette to center
@@ -30,5 +30,5 @@ export function tints(color: HEX, quantity: number = 8): HEX[] {
     return colorMap.hex;
   });
 
-  return [color.toLowerCase(), ...colors] as HEX[];
+  return [palette(color).hex, ...colors] as HEX[];
 }

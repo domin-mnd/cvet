@@ -135,14 +135,15 @@ Here's a parameter list for each of the filter:
 There's a bunch of tools you can use. One is `combination` function that accepts 2 parameters:
 
 - Amount of colors in a combination (default: 2)
-- HEX color of the initial color (default: random)
+- Color of the initial color, can be any model e.g. HEX (default: random)
 
 ```js
 import { combination } from "cvet"; // esm
 const { combination } = require("cvet"); // or cjs
 
 console.log(combination(3, "#ffd301"));
-// Returns ["#ffd301", "#01ffd3", "#d301ff"]
+console.log(combination(3, { r: 255, g: 211, b: 1 })); // Or via RGB
+// Both return same value - ["#ffd301", "#01ffd3", "#d301ff"]
 ```
 
 Tools like `complementary`, `triade`, `square`, `rainbow` work almost identically except these have combination amount preset:
@@ -152,7 +153,7 @@ Tools like `complementary`, `triade`, `square`, `rainbow` work almost identicall
 - `rainbow` returns a full rainbow (7) array of colors with a provided initial color
 
 > **Note**
-> Unlike `combination` tools above require a single parameter - HEX color (no default set).
+> Unlike `combination` tools above require a single parameter - color of any model (no default value set).
 
 Other than these there's an `analogous` tool to return analogous colors (30 degrees rotated hue clockwise & counterclockwise):
 

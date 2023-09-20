@@ -1,14 +1,14 @@
-import type { Amount, HEX } from "@cvet/types";
+import type { Amount, Color, HEX } from "@cvet/types";
 import { Filter } from "../classes/filter";
 
 /**
  * Generate an array of tones from the provided color
- * @param {HEX} color The color used to generate tones
+ * @param {Color} color The color used to generate tones
  * @param {number} quantity Amount of tones to generate (includes initial color)
  * @returns {HEX[]} An array of HEX colors
  */
-export function tones(color: HEX, quantity: number = 8): HEX[] {
-  const colorMap = new Filter(color, "HEX");
+export function tones(color: Color, quantity: number = 8): HEX[] {
+  const colorMap = new Filter(color);
   const initialColor = colorMap.color;
   // Find the tone contrast to add color, to get an array, 100 - initial color
   const contrasts = 100 / quantity;
