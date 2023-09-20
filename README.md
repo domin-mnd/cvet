@@ -48,8 +48,8 @@ const detectedFilterColor = new Filter(
 Instead you can use shorthand functions to get the same results:
 
 ```js
-import { Palette, Filter } from "cvet"; // esm
-const { Palette, Filter } = require("cvet"); // or cjs  
+import { palette, filter } from "cvet"; // esm
+const { palette, filter } = require("cvet"); // or cjs  
 
 const functionColor = palette("#FF0000");
 const functionFilterColor = filter("#FF0000");
@@ -104,6 +104,18 @@ color.color = "#0000FF";
 
 However it won't let you treat color types as you want. Instead it will detect the color type.
 For instance, providing another color type not matching the initial one won't break anything in your code.
+
+## Types
+
+For type usage please head to a separate [`@cvet/types`](https://www.npmjs.com/package/@cvet/types) package.
+It is essentially a provider of color types for the cvet package:
+
+```js
+import type { HEX } from "cvet/types"; // with package usage
+import type { HEX } from "@cvet/types"; // with types dependency usage
+
+const color: HEX = "#FF0000";
+```
 
 ## Filters
 
