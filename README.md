@@ -110,7 +110,7 @@ For instance, providing another color type not matching the initial one won't br
 For type usage please head to a separate [`@cvet/types`](https://www.npmjs.com/package/@cvet/types) package.
 It is essentially a provider of color types for the cvet package:
 
-```js
+```ts
 import type { HEX } from "cvet/types"; // with package usage
 import type { HEX } from "@cvet/types"; // with types dependency usage
 
