@@ -10,6 +10,58 @@ test("Palette class instance", () => {
   expect(palette.hex).toBe("#00ff00");
 });
 
+test("Optional color model detection", () => {
+  expect(new Palette("#FF0000").hex).toBe("#ff0000");
+  expect(new Palette({ r: 255, g: 0, b: 0 }).rgb).toStrictEqual({
+    r: 255,
+    g: 0,
+    b: 0,
+  });
+  expect(new Palette({ h: 0, s: 100, l: 50 }).hsl).toStrictEqual({
+    h: 0,
+    s: 100,
+    l: 50,
+  });
+  expect(new Palette({ c: 0, m: 100, y: 100, k: 0 }).cmyk).toStrictEqual({
+    c: 0,
+    m: 100,
+    y: 100,
+    k: 0,
+  });
+});
+
+test("Alpha optional color model detection", () => {
+  expect(new Palette("#FF000033").hex).toBe("#ff000033");
+  expect(new Palette({ r: 255, g: 0, b: 0 }).rgb).toStrictEqual({
+    r: 255,
+    g: 0,
+    b: 0,
+  });
+  expect(new Palette({ r: 255, g: 0, b: 0, a: 20 }).rgba).toStrictEqual({
+    r: 255,
+    g: 0,
+    b: 0,
+    a: 20,
+  });
+  expect(new Palette({ h: 0, s: 100, l: 50 }).hsl).toStrictEqual({
+    h: 0,
+    s: 100,
+    l: 50,
+  });
+  expect(new Palette({ h: 0, s: 100, l: 50, a: 20 }).hsla).toStrictEqual({
+    h: 0,
+    s: 100,
+    l: 50,
+    a: 20,
+  });
+  expect(new Palette({ c: 0, m: 100, y: 100, k: 0 }).cmyk).toStrictEqual({
+    c: 0,
+    m: 100,
+    y: 100,
+    k: 0,
+  });
+});
+
 test("Color conversion", () => {
   const palette = new Palette("#FF0000", "HEX");
 

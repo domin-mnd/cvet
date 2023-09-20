@@ -20,9 +20,9 @@ export class Filter extends Palette {
   /**
    * Creates an instance of Filter.
    * @param {Color} color A color that is going to be mapped
-   * @param {ColorType} type Color type used for the color parameter
+   * @param {ColorType} [type] Color type used for the color parameter
    */
-  constructor(color: Color, type: ColorType) {
+  constructor(color: Color, type?: ColorType) {
     super(color, type);
   }
 

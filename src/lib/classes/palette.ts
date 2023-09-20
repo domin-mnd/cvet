@@ -10,7 +10,7 @@ import type {
   RGBA,
   Hexadecimal,
 } from "@cvet/types";
-import { cmykToRgb, hexToRgb, hslToRgb, rgbToHsl } from "../utilities";
+import { cmykToRgb, detect, hexToRgb, hslToRgb, rgbToHsl } from "../utilities";
 
 /**
  * A class that represents a color palette
@@ -22,19 +22,19 @@ export class Palette {
   /**
    * Create a palette and convert types to MAP (RGB or RGBA)
    * @param {Color} color A color used to create a palette
-   * @param {ColorType} type A color type used to convert to MAP
+   * @param {ColorType} [type] A color type used to convert to MAP
    */
-  constructor(color: Color, type: ColorType) {
+  constructor(color: Color, type?: ColorType) {
     this._color = this.mapColor(color, type);
   }
 
   /**
    * Convert a color to MAP (RGB or RGBA).
    * @param {Color} color A color used to convert to MAP.
-   * @param {ColorType} type Its type.
+   * @param {ColorType} [type] Its type.
    */
-  private mapColor(color: Color = this._color, type: ColorType): ColorMap {
-    switch (type) {
+  private mapColor(color: Color = this._color, type?: ColorType): ColorMap {
+    switch (type ?? detect(color).model) {
       case "HEX":
         return hexToRgb(color as HEX);
       case "RGB":
@@ -43,7 +43,7 @@ export class Palette {
       case "HSL":
         return hslToRgb(color as HSL);
       case "HSLA":
-        const a = (color as HSLA).a;
+        const { a } = color as HSLA;
         return {
           ...hslToRgb(color as HSL),
           a,
