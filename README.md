@@ -42,6 +42,17 @@ const detectedFilterColor = new Filter(
   },
   "RGB"
 );
+
+```
+
+Instead you can use shorthand functions to get the same results:
+
+```js
+import { Palette, Filter } from "cvet"; // esm
+const { Palette, Filter } = require("cvet"); // or cjs  
+
+const functionColor = palette("#FF0000");
+const functionFilterColor = filter("#FF0000");
 ```
 
 ## Parameters

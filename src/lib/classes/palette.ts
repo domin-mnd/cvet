@@ -151,3 +151,5 @@ export class Palette {
     return { c, m, y, k };
   }
 }
+
+export const palette = (color: Color, type?: ColorType) => new Palette(color, type);

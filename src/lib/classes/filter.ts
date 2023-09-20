@@ -98,3 +98,5 @@ export class Filter extends Palette {
     return this;
   }
 }
+
+export const filter = (color: Color, type?: ColorType) => new Filter(color, type);
