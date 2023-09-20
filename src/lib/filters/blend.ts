@@ -15,8 +15,10 @@ export function blend(
   second: Color,
   percent: Amount,
 ): RGB | RGBA {
-  const firstPalette = new Palette(first), firstColor = firstPalette.rgb;
-  const secondPalette = new Palette(second), secondColor = secondPalette.rgb;
+  const firstPalette = new Palette(first),
+    firstColor = firstPalette.rgb;
+  const secondPalette = new Palette(second),
+    secondColor = secondPalette.rgb;
 
   const calcChannel = (channel: keyof RGB): Hexadecimal =>
     (firstColor[channel] * (percent / 100) +

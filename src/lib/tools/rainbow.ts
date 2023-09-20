@@ -14,13 +14,5 @@ export function rainbow(color: Color): [HEX, HEX, HEX, HEX, HEX, HEX, HEX] {
     () => colorMap.rotateHue(degrees).hex,
   );
 
-  return [palette(color).hex, ...colors] as [
-    HEX,
-    HEX,
-    HEX,
-    HEX,
-    HEX,
-    HEX,
-    HEX,
-  ];
+  return [palette(color).hex, ...colors] as [HEX, HEX, HEX, HEX, HEX, HEX, HEX];
 }

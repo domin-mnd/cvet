@@ -153,4 +153,5 @@ export class Palette {
 }
 
 /** A shorthand palette function that represents a color palette to manipulate with models. */
-export const palette = (color: Color, type?: ColorType) => new Palette(color, type);
+export const palette = (color: Color, type?: ColorType) =>
+  new Palette(color, type);

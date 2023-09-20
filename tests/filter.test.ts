@@ -8,7 +8,7 @@ test("Filter class instance", () => {
 
 test("Optional color model exception", () => {
   expect(() => new Filter("#FF0000", "RGB")).toThrowError(
-    "Invalid color type provided"
+    "Invalid color type provided",
   );
 });
 

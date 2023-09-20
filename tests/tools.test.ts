@@ -15,14 +15,14 @@ test("Combination", () => {
 
   expect(combination(3, "#FF0000")).toStrictEqual(threeSolidCombination);
   expect(combination(3, { r: 255, g: 0, b: 0 })).toStrictEqual(
-    threeSolidCombination
+    threeSolidCombination,
   );
 
   const threeAlphaCombination = ["#ff000033", "#00ff0033", "#0000ff33"];
 
   expect(combination(3, "#FF000033")).toStrictEqual(threeAlphaCombination);
   expect(combination(3, { r: 255, g: 0, b: 0, a: 20 })).toStrictEqual(
-    threeAlphaCombination
+    threeAlphaCombination,
   );
 });
 
@@ -35,19 +35,25 @@ test("Analogous", () => {
   const alphaAnalogous = ["#62c62c33", "#2cc64333", "#afc62c33"];
 
   expect(analogous("#62C62C33")).toStrictEqual(alphaAnalogous);
-  expect(analogous({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(alphaAnalogous);
+  expect(analogous({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(
+    alphaAnalogous,
+  );
 });
 
 test("Complementary", () => {
   const solidComplementary = ["#62c62c", "#902cc6"];
 
   expect(complementary("#62C62C")).toStrictEqual(solidComplementary);
-  expect(complementary({ r: 98, g: 198, b: 44 })).toStrictEqual(solidComplementary);
-  
+  expect(complementary({ r: 98, g: 198, b: 44 })).toStrictEqual(
+    solidComplementary,
+  );
+
   const alphaComplementary = ["#62c62c33", "#902cc633"];
-  
+
   expect(complementary("#62C62C33")).toStrictEqual(alphaComplementary);
-  expect(complementary({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(alphaComplementary);
+  expect(complementary({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(
+    alphaComplementary,
+  );
 });
 
 test("Rainbow", () => {
@@ -72,7 +78,7 @@ test("Rainbow", () => {
     "#c62cba33",
     "#c62c3633",
     "#c6a62c33",
-  ]
+  ];
 
   expect(rainbow("#62C62C33")).toStrictEqual(alphaRainbow);
   expect(rainbow({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(alphaRainbow);
@@ -105,7 +111,9 @@ test("Shades", () => {
   ];
 
   expect(shades("#62C62C33")).toStrictEqual(eightAlphaShades);
-  expect(shades({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(eightAlphaShades);
+  expect(shades({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(
+    eightAlphaShades,
+  );
 
   const tenSolidShades = [
     "#62c62c",
@@ -137,26 +145,18 @@ test("Shades", () => {
   ];
 
   expect(shades("#62C62C33", 10)).toStrictEqual(tenAlphaShades);
-  expect(shades({ r: 98, g: 198, b: 44, a: 20 }, 10)).toStrictEqual(tenAlphaShades);
+  expect(shades({ r: 98, g: 198, b: 44, a: 20 }, 10)).toStrictEqual(
+    tenAlphaShades,
+  );
 });
 
 test("Square", () => {
-  const solidSquare = [
-    "#62c62c",
-    "#2cafc6",
-    "#902cc6",
-    "#c6432c",
-  ];
+  const solidSquare = ["#62c62c", "#2cafc6", "#902cc6", "#c6432c"];
 
   expect(square("#62C62C")).toStrictEqual(solidSquare);
   expect(square({ r: 98, g: 198, b: 44 })).toStrictEqual(solidSquare);
 
-  const alphaSquare = [
-    "#62c62c33",
-    "#2cafc633",
-    "#902cc633",
-    "#c6432c33",
-  ]
+  const alphaSquare = ["#62c62c33", "#2cafc633", "#902cc633", "#c6432c33"];
 
   expect(square("#62C62C33")).toStrictEqual(alphaSquare);
   expect(square({ r: 98, g: 198, b: 44, a: 20 })).toStrictEqual(alphaSquare);
@@ -221,7 +221,9 @@ test("Tints", () => {
   ];
 
   expect(tints("#62C62C33", 10)).toStrictEqual(tenAlphaTints);
-  expect(tints({ r: 98, g: 198, b: 44, a: 20 }, 10)).toStrictEqual(tenAlphaTints);
+  expect(tints({ r: 98, g: 198, b: 44, a: 20 }, 10)).toStrictEqual(
+    tenAlphaTints,
+  );
 });
 
 test("Tones", () => {
@@ -284,7 +286,7 @@ test("Tones", () => {
 
   expect(tones("#62C62C33", 10)).toStrictEqual(tenAlphaTones);
   expect(tones({ r: 98, g: 198, b: 44, a: 20 }, 10)).toStrictEqual(
-    tenAlphaTones
+    tenAlphaTones,
   );
 });
 

@@ -10,15 +10,15 @@ import { detect } from "./detect";
  * @return {T} - The parsed object.
  */
 function parseFixed<T extends Exclude<Color, HEX> = Exclude<Color, HEX>>(
-  obj: T
+  obj: T,
 ): T {
   return Object.keys(obj).reduce<T>(
     (acc, key) =>
       // Ignore alpha channel
       key === "a"
-        ? ({ ...acc, [key]: obj[key as keyof T] as number / 100 } as T)
+        ? ({ ...acc, [key]: (obj[key as keyof T] as number) / 100 } as T)
         : ({ ...acc, [key]: +(obj[key as keyof T] as number).toFixed(1) } as T),
-    {} as T
+    {} as T,
   );
 }
 

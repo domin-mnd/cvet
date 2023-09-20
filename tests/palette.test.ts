@@ -32,7 +32,7 @@ test("Optional color model detection", () => {
 
 test("Optional color model exception", () => {
   expect(() => new Palette("#FF0000", "RGB")).toThrowError(
-    "Invalid color type provided"
+    "Invalid color type provided",
   );
 });
 

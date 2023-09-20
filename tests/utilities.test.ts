@@ -96,7 +96,7 @@ test("detect", () => {
     model: "HSLA",
     color: color.hsla,
   });
-  
+
   expect(detect(color.cmyk)).toStrictEqual({
     model: "CMYK",
     color: color.cmyk,
