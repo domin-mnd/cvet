@@ -79,7 +79,7 @@ console.log(color.color); // Returns RGB color (MAP), console logging the class 
 console.log(color.red); // Returns red value in the color
 console.log(color.green); // Returns green value in the color
 console.log(color.blue); // Returns blue value in the color
-console.log(color.alpha); // Returns alpha channel value in the color
+console.log(color.alpha); // Returns alpha channel value in the color, if no alpha then it will return null
 console.log(color.hex); // Returns converted MAP to HEX
 console.log(color.rgb); // Returns RGB, will cut the alpha part
 console.log(color.rgba); // Returns RGBA
